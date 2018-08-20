@@ -6,18 +6,12 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 07:35:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/20 08:09:37 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/20 08:59:48 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-/*
-**   new_stack function returns;
-** - One 			if the stack is full,
-** - Negative One	if the stack is empty and
-** - Zero			otherwise.
-*/
 ps->stack		*new_stack(t_ps	*ps, size_t size)
 {
 	ps	*new_stack;
@@ -28,8 +22,12 @@ ps->stack		*new_stack(t_ps	*ps, size_t size)
 	ps->stack->array = (int *)ft_memalloc(sizeof(int *) * ps->stack->size);
 	return (new_stack);
 }
-
-
+/*
+**   new_stack function returns;
+** - One 			if the stack is full,
+** - Negative One	if the stack is empty and
+** - Zero			otherwise.
+*/
 int		stack_state(t_ps *ps)
 {
 	if (ps->stack->top == (int)ps->stack->size - 1)
@@ -39,12 +37,12 @@ int		stack_state(t_ps *ps)
 	else
 		return (0);
 }
-
+/*
 void	push(t_ps *ps)
 {
-	if (stack_state)
+	if (stack_state(ps->stack) == )
 }
 
 void	pop(t_ps *ps)
 {
-}
+}*/
