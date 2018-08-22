@@ -6,7 +6,23 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/20 08:06:45 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/22 17:29:16 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push.h"
+#include <stdio.h>
+
+int main()
+{
+	t_stack *a;
+	a = new_stack(100);
+
+	push(a, 10);
+	push(a, 20);
+	push(a, 30);
+
+	printf("%d popped from stack\n", pop(a));
+
+	return 0;
+}

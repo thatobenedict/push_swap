@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 07:35:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/22 09:04:54 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/22 17:27:49 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,4 @@ int		pop(t_stack *ps)
 	if (stack_state(ps) == -1)
 		return (-1);
 	return (ps->array[ps->top--]);
-}
-// TESTER
-int main()
-{
-	t_stack  *ps;
-	ps = NULL;
-//	ps->top = 0;
-//	ps->size = 0;
-//	ps->array = 0;
-	t_stack *a;
-	a = new_stack(input;
-	b = new_stack(input)	
-
-	push(a, 10);
-	push(a, 20);
-	push(a, 30);
-
-	printf("%d popped from stack\n", pop(a));
-
-	return 0;
 }
