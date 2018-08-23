@@ -89,4 +89,5 @@ int					ft_strstr_io(const char *haystack, const char *needle);
 void				ft_puttab(char **s);
 int					ft_contain_char_col(char **s1, int col, int height, int c);
 void				ft_puttab_fd(char **s, int fd);
+int				ft_isnumber(void *c);
 #endif
