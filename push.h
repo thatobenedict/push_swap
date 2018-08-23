@@ -25,7 +25,6 @@ typedef struct	s_stack
 	int			size;
 	int			*array;
 }				t_stack;
-
 //typedef struct	s_ps
 //{
 //	t_stack		a;
