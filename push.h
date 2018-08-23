@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/22 18:45:28 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/23 18:54:19 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 # define UNSORTED "KO\n"
 # define ERROR "Error\n"
 # include "get_next_line/get_next_line.h"
+# include <stdlib.h>
 
 typedef struct	s_stack
 {
 	int			top;
-	size_t		size;
+	int			size;
 	int			*array;
 }				t_stack;
 
@@ -41,4 +42,6 @@ t_stack		*new_stack(size_t size);
 int			stack_state(t_stack *ps);
 void		push(t_stack *ps, int integer);
 int			pop(t_stack *ps);
+void		display_stack(t_stack *a, t_stack *b);
+void		ft_duplicates(char **numbers, int count, int trig);
 #endif

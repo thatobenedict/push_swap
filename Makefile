@@ -6,7 +6,7 @@
 #    By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 13:40:11 by tbenedic          #+#    #+#              #
-#    Updated: 2018/08/22 18:45:26 by tbenedic         ###   ########.fr        #
+#    Updated: 2018/08/23 18:32:34 by tbenedic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,8 @@ NAME = checker
 
 SRCC = $(addsuffix .c, $(FUNCS))
 SRCO = $(addsuffix .o, $(FUNCS_O))
-FUNCS =	   	main \
-		stack_basics 
-FUNCS_O = 	 	main \
+FUNCS =	main_checker stack_basics display admin	   
+FUNCS_O = 	 	main_checker \
 		stack_basics \ 
 LIBFT = get_next_line/libft/libft.a
 HEAD  = push.h
@@ -27,6 +26,9 @@ $(NAME):
 	make -C get_next_line/libft
 #	gcc -Wall -Werror -Wextra -c $(SRCC)
 	gcc -Wall -Werror -Wextra $(SRCC) $(LIBFT) -o $(NAME)  
+
+local:
+	gcc -Wall -Werror -Wextra $(SRCC) $(LIBFT) -o $(NAME) 
 
 clean: libclean
 		rm -f $(SRCO)
