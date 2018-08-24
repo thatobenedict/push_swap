@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 07:35:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 09:49:05 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:20:45 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_stack		*new_stack(size_t size)
 	ps->size = size;
 	ps->top = -1;
 	ps->array = (int *)ft_memalloc(sizeof(int *) * ps->size);
+
 	return (ps); 
 }
 /*

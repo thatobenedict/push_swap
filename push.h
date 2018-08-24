@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 15:22:14 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:20:47 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,11 @@ typedef struct	s_stack
 	int			size;
 	int			*array;
 }				t_stack;
-//typedef struct	s_ps
-//{
-//	t_stack		a;
-//	t_stack		b;
-//}				t_ps;
-/*
-** Prototypes for main.c
-*/
 
+typedef struct s_admin
+{
+	int			in_type;
+}				t_admin
 /*
 ** Prototypes for stack_basics.c
 */
@@ -45,5 +41,9 @@ void		display_stack(t_stack *a, t_stack *b);
 void		ft_duplicates(char **numbers, int count);
 void		is_digits(char **numbers, int trig);
 void		is_int(char **numbers, int trig);
+void		error_handle(char **numbers, int trig, int count);
+/*
+** Prototypes for stack_basics.c
+*/
 
 #endif

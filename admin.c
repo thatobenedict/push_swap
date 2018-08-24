@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 15:52:52 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:20:39 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,27 @@ void	is_int(char **numbers, int trig)
 	}
 }
 
+void	error_handle(char **numbers, int count, t_admin admin)
+{
+	if (count == 2)
+	{
+		trig = 2;
+		count = ft_white_word_count(numbers[1]) + 1;
+		numbers = ft_strsplit(numbers[1], ' ');
+		error_handle(numbers, f->in_type, count - 1);
+	}
+	else
+	{
+		f->in_type = 1;
+		error_handle(av, trig, count - 1);
+	}
+
+
+
+	ft_duplicates(numbers, count);
+	is_digits(numbers, f->in_type);
+	is_int(numbers, f->in_type);
+}
 /*
  ** Errors include for example: 			
  ** some arguments are not integers, 				
