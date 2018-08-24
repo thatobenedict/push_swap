@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 11:19:24 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 14:21:17 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/08/24 11:35:39 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/08/24 11:41:30 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isnumber(char *str)
+#include "libft.h"
+
+long	ft_atol(char *str)
 {
 	int i;
+	long long num;
+	int sign;
+
 	i = 0;
-	while (str)
+	sign = 1;
+	num = 0;
+	while (ft_whitespace(str[i]))
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] != '\0' && ft_isdigit(str[i]))
 	{
-		if ((str[i] == '+' || str[i] == '-') && str[i + 1] != '\0')
-			i++;
-		if (str[i] >= 48 && str[i] <= 57)
-			i++;
-		else
-			return (0);
-		
+		num = (num * 10) + (str[i] - 48);
+		i++;
 	}
-	return (1);
+	return ((long)sign * num);
 }

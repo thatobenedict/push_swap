@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 10:48:04 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/19 16:12:29 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 11:42:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ int					ft_strstr_io(const char *haystack, const char *needle);
 void				ft_puttab(char **s);
 int					ft_contain_char_col(char **s1, int col, int height, int c);
 void				ft_puttab_fd(char **s, int fd);
-int				ft_isnumber(void *c);
+int					ft_isnumber(void *c);
+long				ft_atol(char *str);
 #endif

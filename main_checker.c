@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 08:57:37 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 09:49:03 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int main(int ac, char **av)
 		ac = ft_white_word_count(av[1]) + 1;
 		av = ft_strsplit(av[1], ' ');
 		ft_duplicates (av, ac - 1);
+		is_digits(av, trig);
 	}
 	else
 	{
 		trig = 1;
 		ft_duplicates (av, ac);
-
+		is_digits(av, trig);
 	}
 	a = new_stack(ac - 1);
 	b = new_stack(ac - 1);

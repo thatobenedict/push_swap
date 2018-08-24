@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 08:57:39 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 15:01:17 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,45 +37,49 @@ void	ft_duplicates(char **numbers, int count)
 	}		
 }
 
-void	is_int(char **numbers, int count, int trig)
+void	is_digits(char **numbers, int trig)
 {
 	int i;
-	int end;
+	int j;
 
 	i = 0;
-	end = 0;
-	end = count - (trig - 1) - 1;
+	j = 0;
 	if (trig == 2)
 		trig = 0;
-	while (i < end)
+	while (numbers[i + trig] != 0)
 	{
-		if (ft_isnumber(numbers[i + trig]) == 0)
+		j = 0;
+		while (numbers[i + trig][j] != '\0')
 		{
-			ft_putstr_fd("Error\n", 2);
-			exit (-1);
+			if ((numbers[i + trig][j] == '+' || numbers[i + trig][j] == '-'))
+			{
+				j++;
+				if (ft_isdigit(numbers[i + trig][j]) == 0)
+				{
+					ft_putstr_fd("Error\n", 2);
+					exit (-1);
+				}
+			}
+			else
+			{
+				if (ft_isdigit(numbers[i + trig][j]) == 0)
+				{
+					ft_putstr_fd("Error\n", 2);
+					exit (-1);
+				}
+				j++;
+			}
 		}
 		i++;
-	}
-	i = 0;
-	while (i < end)
-	{
-		if (ft_atoi(numbers[i + trig]) >= -2147483648 &&
-				ft_atoi(numbers[i + trig]) <= 2147483647)
-			i++;
-		else
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit (-1);
-		}
 	}
 }
 
 
 /*
  ** Errors include for example: 			
- ** some arguments are not integers, 			
+ ** some arguments are not integers, 				
  ** some arguments are bigger than an integer,		
- ** there are duplicates, 				###DONE
- ** an instruction don’t exist and/or is		
- ** incorrectly formatted.				
+ ** there are duplicates, 							###DONE
+ ** an instruction don’t exist and/or is			
+ ** incorrectly formatted.							
  */
