@@ -6,11 +6,12 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 11:35:39 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 11:41:30 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 15:30:55 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 long	ft_atol(char *str)
 {
@@ -32,5 +33,6 @@ long	ft_atol(char *str)
 		num = (num * 10) + (str[i] - 48);
 		i++;
 	}
+	printf("%ld\n", (long)sign*num);
 	return ((long)sign * num);
 }

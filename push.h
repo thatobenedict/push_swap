@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 09:49:13 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 15:22:14 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,6 @@ int			pop(t_stack *ps);
 void		display_stack(t_stack *a, t_stack *b);
 void		ft_duplicates(char **numbers, int count);
 void		is_digits(char **numbers, int trig);
+void		is_int(char **numbers, int trig);
+
 #endif

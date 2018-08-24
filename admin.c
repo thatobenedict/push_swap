@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 15:01:17 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 15:52:52 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,24 @@ void	is_digits(char **numbers, int trig)
 	}
 }
 
+void	is_int(char **numbers, int trig)
+{
+	int i;
+
+	i = 0;
+	if (trig == 2)
+		trig = 0;
+	while (numbers[i + trig] != 0)
+	{
+		if (ft_atol(numbers[i + trig]) < -2147483648 ||
+				ft_atol(numbers[i + trig]) > 2147483647)
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit (-1);
+		}
+		i++;
+	}
+}
 
 /*
  ** Errors include for example: 			
