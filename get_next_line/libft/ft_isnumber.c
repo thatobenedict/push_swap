@@ -6,11 +6,11 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 11:19:24 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/05/23 11:54:12 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/24 08:23:04 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isnumber(void *c)
+int		ft_isnumber(int *c)
 {
 	int i;
 	i = 0;
