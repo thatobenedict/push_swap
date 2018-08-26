@@ -33,6 +33,5 @@ long	ft_atol(char *str)
 		num = (num * 10) + (str[i] - 48);
 		i++;
 	}
-	printf("%ld\n", (long)sign*num);
 	return ((long)sign * num);
 }
