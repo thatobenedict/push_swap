@@ -6,14 +6,14 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:52:02 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 17:05:58 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/26 16:22:16 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //####SWAP
 // sa : swap a - swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one or no elements.
-void	ft_sa(t_stack a)
+void	ft_sa(t_stack ab)
 {
 	
 }

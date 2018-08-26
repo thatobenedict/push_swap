@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 17:20:39 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/26 18:18:23 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_duplicates(char **numbers, int count)
 		{
 			if (ft_atoi(numbers[i]) == ft_atoi(numbers[j]))
 			{
-				ft_putstr_fd("Error\n", 2);
+				ft_putstr_fd("Error0\n", 2);
 				exit (-1);
 			}
 			j++;
@@ -37,34 +37,37 @@ void	ft_duplicates(char **numbers, int count)
 	}		
 }
 
-void	is_digits(char **numbers, int trig)
+void	is_digits(char **numbers, t_ps *ps)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	if (trig == 2)
-		trig = 0;
-	while (numbers[i + trig] != 0)
+	if (ps->admin.in_type == 2)
+		ps->admin.in_type = 0;
+	while (numbers[i + ps->admin.in_type] != 0)
 	{
 		j = 0;
-		while (numbers[i + trig][j] != '\0')
+		while (numbers[i + ps->admin.in_type][j] != '\0')
 		{
-			if ((numbers[i + trig][j] == '+' || numbers[i + trig][j] == '-'))
+			if ((numbers[i + ps->admin.in_type][j] == '+' ||
+					   	numbers[i + ps->admin.in_type][j] == '-'))
 			{
 				j++;
-				if (ft_isdigit(numbers[i + trig][j]) == 0)
+				if (ft_isdigit(numbers[i + ps->admin.in_type][j]) == 0)
 				{
-					ft_putstr_fd("Error\n", 2);
+					ft_putstr_fd("Error1\n", 2);
 					exit (-1);
 				}
 			}
 			else
 			{
-				if (ft_isdigit(numbers[i + trig][j]) == 0)
+				if (ft_isdigit(numbers[i + ps->admin.in_type][j]) == 0)
 				{
-					ft_putstr_fd("Error\n", 2);
+					ft_putnbr_fd(numbers[i + ps->admin.in_type][j], 2);
+					ft_putchar_fd('\n',2);
+					ft_putstr_fd("Error2\n", 2);
 					exit (-1);
 				}
 				j++;
@@ -74,45 +77,38 @@ void	is_digits(char **numbers, int trig)
 	}
 }
 
-void	is_int(char **numbers, int trig)
+void	is_int(char **numbers, t_ps *ps)
 {
 	int i;
 
 	i = 0;
-	if (trig == 2)
-		trig = 0;
-	while (numbers[i + trig] != 0)
+	if (ps->admin.in_type == 2)
+		ps->admin.in_type = 0;
+	while (numbers[i + ps->admin.in_type] != 0)
 	{
-		if (ft_atol(numbers[i + trig]) < -2147483648 ||
-				ft_atol(numbers[i + trig]) > 2147483647)
+		if (ft_atol(numbers[i + ps->admin.in_type]) < -2147483648 ||
+				ft_atol(numbers[i + ps->admin.in_type]) > 2147483647)
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Error3\n", 2);
 			exit (-1);
 		}
 		i++;
 	}
 }
 
-void	error_handle(char **numbers, int count, t_admin admin)
+void	error_handle(char **numbers, int count, t_ps *ps)
 {
 	if (count == 2)
 	{
-		trig = 2;
+		ps->admin.in_type = 2;
 		count = ft_white_word_count(numbers[1]) + 1;
 		numbers = ft_strsplit(numbers[1], ' ');
-		error_handle(numbers, f->in_type, count - 1);
 	}
 	else
-	{
-		f->in_type = 1;
-		error_handle(av, trig, count - 1);
-	}
-
-
-
+		ps->admin.in_type = 1;
 	ft_duplicates(numbers, count);
-	is_digits(numbers, f->in_type);
-	is_int(numbers, f->in_type);
+	is_digits(numbers, ps);
+	is_int(numbers, ps);
 }
 /*
  ** Errors include for example: 			
