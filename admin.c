@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 15:52:52 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/27 08:50:50 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ void	ft_duplicates(char **numbers, int count)
 	}		
 }
 
-void	is_digits(char **numbers, int trig)
+void	is_digits(char **numbers, t_ps *ps)
 {
 	int i;
 	int j;
+	int trig;
 
 	i = 0;
 	j = 0;
+	trig = ps->trig;
 	if (trig == 2)
 		trig = 0;
 	while (numbers[i + trig] != 0)
@@ -51,7 +53,8 @@ void	is_digits(char **numbers, int trig)
 		j = 0;
 		while (numbers[i + trig][j] != '\0')
 		{
-			if ((numbers[i + trig][j] == '+' || numbers[i + trig][j] == '-'))
+			if ((numbers[i + trig][j] == '+' ||
+					   	numbers[i + trig][j] == '-'))
 			{
 				j++;
 				if (ft_isdigit(numbers[i + trig][j]) == 0)
@@ -74,11 +77,13 @@ void	is_digits(char **numbers, int trig)
 	}
 }
 
-void	is_int(char **numbers, int trig)
+void	is_int(char **numbers, t_ps *ps)
 {
 	int i;
+	int trig;
 
 	i = 0;
+	trig = ps->trig;
 	if (trig == 2)
 		trig = 0;
 	while (numbers[i + trig] != 0)

@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 15:22:53 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/27 08:51:49 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,35 @@
 
 int main(int ac, char **av)
 {
-	int trig;
-	t_stack *a;
-	t_stack *b;
-
+	t_ps	*ps;
+	
+	ps = ft_memalloc(sizeof(t_ps));
+	ps->trig = 0;
 	if (ac == 2)
 	{
-		trig = 2;
+		ps->trig = 2;
 		ac = ft_white_word_count(av[1]) + 1;
 		av = ft_strsplit(av[1], ' ');
 		ft_duplicates (av, ac - 1);
-		is_digits(av, trig);
-		is_int(av, trig);
+		is_digits(av, ps);
+		is_int(av, ps);
 	}
 	else
 	{
-		trig = 1;
+		ps->trig = 1;
 		ft_duplicates (av, ac);
-		is_digits(av, trig);
-		is_int(av, trig);
+		is_digits(av, ps);
+		is_int(av, ps);
 	}
-	a = new_stack(ac - 1);
-	b = new_stack(ac - 1);
+	ps->a = new_stack(ac - 1);
+	ps->b = new_stack(ac - 1);
 
-	int i = ac - trig;
+	int i = ac - ps->trig;
 	while (i >= 0)
-		push(a, ft_atoi(av[i--]));
-	display_stack(a, b);
+	{
+
+	push(ps->a, ft_atoi(av[i--]));
+	}
+	display_stack(ps->a, ps->b);
 	return 0;
 }
