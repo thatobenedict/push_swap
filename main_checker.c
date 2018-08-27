@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 08:51:49 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/27 12:22:12 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(int ac, char **av)
 {
 	t_ps	*ps;
-	
+
 	ps = ft_memalloc(sizeof(t_ps));
 	ps->trig = 0;
 	if (ac == 2)
@@ -40,10 +40,11 @@ int main(int ac, char **av)
 
 	int i = ac - ps->trig;
 	while (i >= 0)
-	{
-
-	push(ps->a, ft_atoi(av[i--]));
-	}
+		push(ps->a, ft_atoi(av[i--]));
 	display_stack(ps->a, ps->b);
+//	ft_putnbr_fd(ps->a->array[ps->a->top - 1], 2);
+//	ft_putchar_fd('\n', 2);
+		ft_sa(ps);
+		display_stack(ps->a, ps->b);
 	return 0;
 }
