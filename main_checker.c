@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 12:22:12 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/27 18:02:59 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int ac, char **av)
 	display_stack(ps->a, ps->b);
 //	ft_putnbr_fd(ps->a->array[ps->a->top - 1], 2);
 //	ft_putchar_fd('\n', 2);
-		ft_sa(ps);
+		ft_pb(ps);
 		display_stack(ps->a, ps->b);
 	return 0;
 }

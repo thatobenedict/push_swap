@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:52:02 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 12:22:31 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/27 14:02:52 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,14 @@ void	ft_ss(t_ps *stack)
 //nothing if a is empty.
 
 /////////// you need to pre-error check before calling these guy indepently
-void	ft_pa(t_stack *ps)
+void	ft_pa(t_ps *stack)
 {
-	push(stack->a->top, stack->b->array[stack->b->top]);
-	pop(stack->b->top);
+	push(stack->a, stack->b->array[stack->b->top]);
+	pop(stack->b);
 }
 
-void	ft_pb(t_stack *ps)
+void	ft_pb(t_ps *stack)
 {
-	push(stack->b->top, stack->a->array[stack->a->top]);
-	pop(stack->a->top);
+	push(stack->b, stack->a->array[stack->a->top]);
+	pop(stack->a);
 }
-
-
-//####ROTATE
-// ra : rotate a - shift up all elements of stack a by 1. The first element becomes
-//the last one.
-// rb : rotate b - shift up all elements of stack b by 1. The first element becomes
-//the last one.
-// rr : ra and rb at the same time.
-
-//####REVERSE ROTATE
-// rra : reverse rotate a - shift down all elements of stack a by 1. The flast element
-//becomes the first one.
-// rrb : reverse rotate b - shift down all elements of stack b by 1. The flast element
-//becomes the first one.
-// rrr : rra and rrb at the same time.
