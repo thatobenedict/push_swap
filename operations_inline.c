@@ -6,13 +6,13 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 11:58:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 16:48:29 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 17:57:32 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void	assign(t_ps *ps)
+void	apply(t_ps *ps)
 {
 	while (get_next_line(0, &(ps->gnl.line)) > 0)
 	{
@@ -43,8 +43,27 @@ void	assign(t_ps *ps)
 		display_stack(ps->a, ps->b);
 	}
 }
-/*
-void	operater(t_ps *ps)
+
+void	check_sort(t_ps *ps)
 {
-	if ()
-}*/
+	int i;
+
+	if (ps->b->top == -1)
+	{
+		i = 0;
+		while (i < ps->a->top)
+		{
+			if (ps->a->array[i] > ps->a->array[i + 1])
+				i++;
+			else
+			{
+				ft_putstr_fd(UNSORTED, 2);
+				exit (-1);
+			}
+		}
+		ft_putstr_fd(SORTED, 2);
+		exit (-1);
+	}
+	ft_putstr_fd(UNSORTED, 2);
+	exit (-1);
+}

@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 11:43:52 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 17:40:06 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_duplicates(char **numbers, int count)
 		{
 			if (ft_atoi(numbers[i]) == ft_atoi(numbers[j]))
 			{
-				ft_putstr_fd("Error\n", 2);
+				ft_putstr_fd(ERROR, 2);
 				exit (-1);
 			}
 			j++;
@@ -65,7 +65,7 @@ void	is_digits(char **numbers, t_ps *ps)
 				j++;
 				if (ft_isdigit(numbers[i + trig][j]) == 0)
 				{
-					ft_putstr_fd("Error\n", 2);
+					ft_putstr_fd(ERROR, 2);
 					exit (-1);
 				}
 			}
@@ -73,7 +73,7 @@ void	is_digits(char **numbers, t_ps *ps)
 			{
 				if (ft_isdigit(numbers[i + trig][j]) == 0)
 				{
-					ft_putstr_fd("Error\n", 2);
+					ft_putstr_fd(ERROR, 2);
 					exit (-1);
 				}
 				j++;
@@ -97,7 +97,7 @@ void	is_int(char **numbers, t_ps *ps)
 		if (ft_atol(numbers[i + trig]) < -2147483648 ||
 				ft_atol(numbers[i + trig]) > 2147483647)
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd(ERROR, 2);
 			exit (-1);
 		}
 		i++;
