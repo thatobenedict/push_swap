@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 18:03:05 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 11:23:29 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ void		ft_pb(t_ps *stack);
 void		ft_ra(t_ps *stack);
 void		ft_rb(t_ps *stack);
 void		ft_rr(t_ps *stack);
+void		ft_rra(t_ps *stack);
+void		ft_rrb(t_ps *stack);
+void		ft_rrr(t_ps *stack);
 
 #endif

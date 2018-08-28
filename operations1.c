@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:52:02 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 14:02:52 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 11:23:35 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,26 @@ void	ft_ss(t_ps *stack)
 	}
 }
 
-//####PUSH
-// pa : push a - take the first element at the top of b and put it at the top of a. Do
-//nothing if b is empty.
-// pb : push b - take the first element at the top of a and put it at the top of b. Do
-//nothing if a is empty.
+/*
+** ####PUSH
+** pa : push a - take the first element at the top of b and put it at the top of a.
+** Do nothing if b is empty.
+** pb : push b - take the first element at the top of a and put it at the top of b.
+** Do nothing if a is empty.
+*/
 
-/////////// you need to pre-error check before calling these guy indepently
 void	ft_pa(t_ps *stack)
 {
+	if (stack_state(stack->a) == 1 || stack_state(stack->b) == -1)
+		return ;
 	push(stack->a, stack->b->array[stack->b->top]);
 	pop(stack->b);
 }
 
 void	ft_pb(t_ps *stack)
 {
+	if (stack_state(stack->b) == 1 || stack_state(stack->a) == -1)
+		return ;
 	push(stack->b, stack->a->array[stack->a->top]);
 	pop(stack->a);
 }

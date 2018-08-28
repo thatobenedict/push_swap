@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 18:02:59 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 11:23:34 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ int main(int ac, char **av)
 
 	int i = ac - ps->trig;
 	while (i >= 0)
-		push(ps->a, ft_atoi(av[i--]));
+	{
+		push(ps->a, ft_atoi(av[i]));
+		push(ps->b, ft_atoi(av[i]));
+		i--;
+	}
 	display_stack(ps->a, ps->b);
-//	ft_putnbr_fd(ps->a->array[ps->a->top - 1], 2);
-//	ft_putchar_fd('\n', 2);
-		ft_pb(ps);
+		ft_rrr(ps);
 		display_stack(ps->a, ps->b);
 	return 0;
 }
