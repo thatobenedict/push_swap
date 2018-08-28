@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 14:03:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 11:50:55 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:57:48 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_rb(t_ps	*stack)
 ** The flast element becomes the first one.
 */
 
-void	ft_rra(t_ps	*stack)
+void	ft_rra(t_ps		*stack)
 {
 	int i;
 	int j;
@@ -85,7 +85,7 @@ void	ft_rra(t_ps	*stack)
 	stack->a->array[stack->a->top] = temp;
 }
 
-void	ft_rrb(t_ps	*stack)
+void	ft_rrb(t_ps		*stack)
 {
 	int i;
 	int j;

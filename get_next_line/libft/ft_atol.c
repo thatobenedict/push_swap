@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 11:35:39 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 15:30:55 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:39:53 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 long	ft_atol(char *str)
 {
-	int i;
-	long long num;
-	int sign;
+	int			i;
+	long long	num;
+	int			sign;
 
 	i = 0;
 	sign = 1;

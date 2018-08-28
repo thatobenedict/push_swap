@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 17:40:06 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:36:39 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,11 @@ void	ft_duplicates(char **numbers, int count)
 		while (j < end)
 		{
 			if (ft_atoi(numbers[i]) == ft_atoi(numbers[j]))
-			{
-				ft_putstr_fd(ERROR, 2);
-				exit (-1);
-			}
+				message(-1);
 			j++;
 		}
 		i++;
-	}		
+	}
 }
 
 void	is_digits(char **numbers, t_ps *ps)
@@ -49,37 +46,26 @@ void	is_digits(char **numbers, t_ps *ps)
 	int j;
 	int trig;
 
-	i = 0;
-	j = 0;
+	i = -1;
 	trig = ps->trig;
 	if (trig == 2)
 		trig = 0;
-	while (numbers[i + trig] != 0)
+	while (numbers[++i + trig] != 0)
 	{
-		j = 0;
-		while (numbers[i + trig][j] != '\0')
+		j = -1;
+		while (numbers[i + trig][++j] != '\0')
 		{
-			if ((numbers[i + trig][j] == '+' ||
-					   	numbers[i + trig][j] == '-'))
+			if ((numbers[i + trig][j] == '+' || numbers[i + trig][j] == '-'))
 			{
-				j++;
-				if (ft_isdigit(numbers[i + trig][j]) == 0)
-				{
-					ft_putstr_fd(ERROR, 2);
-					exit (-1);
-				}
+				if (ft_isdigit(numbers[i + trig][++j]) == 0)
+					message(-1);
 			}
 			else
 			{
 				if (ft_isdigit(numbers[i + trig][j]) == 0)
-				{
-					ft_putstr_fd(ERROR, 2);
-					exit (-1);
-				}
-				j++;
+					message(-1);
 			}
 		}
-		i++;
 	}
 }
 
@@ -96,19 +82,7 @@ void	is_int(char **numbers, t_ps *ps)
 	{
 		if (ft_atol(numbers[i + trig]) < -2147483648 ||
 				ft_atol(numbers[i + trig]) > 2147483647)
-		{
-			ft_putstr_fd(ERROR, 2);
-			exit (-1);
-		}
+			message(-1);
 		i++;
 	}
 }
-
-/*
- ** Errors include for example: 			
- ** some arguments are not integers, 				
- ** some arguments are bigger than an integer,		
- ** there are duplicates, 							###DONE
- ** an instruction don’t exist and/or is			
- ** incorrectly formatted.							
- */

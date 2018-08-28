@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 17:57:28 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:25:50 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void		is_digits(char **numbers, t_ps *ps);
 void		is_int(char **numbers, t_ps *ps);
 void		apply(t_ps *ps);
 void		check_sort(t_ps *stack);
+void		message(int signal);
 void		ft_sa(t_ps *stack);
 void		ft_sb(t_ps *stack);
 void		ft_ss(t_ps *stack);

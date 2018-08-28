@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:58:36 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 16:36:53 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:37:06 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,35 @@ void	display_stack(t_stack *a, t_stack *b)
 			ft_putchar_fd('\t', 2);
 		}
 		else
-		{
-			ft_putstr_fd("--", 2);
-			ft_putchar_fd('\t', 2);
-		}
+			ft_putstr_fd("--\t", 2);
 		if (j >= 0)
 		{
 			ft_putnbr_fd(b->array[j], 2);
 			ft_putchar_fd('\n', 2);
 		}
 		else
-		{
-			ft_putstr_fd("--", 2);
-			ft_putchar_fd('\n', 2);
-		}
+			ft_putstr_fd("--\n", 2);
 		i--;
 		j--;
 	}
 	ft_putstr_fd("--\t--\nA\tB\n", 2);
 }
 
-void	display_top(t_stack *ps)
+void	message(int signal)
 {
-	ft_putnbr(ps->top);
-	ft_putchar('\n');
-	ft_putnbr(ps->array[ps->top]);
-	ft_putchar('\n');
+	if (signal == -1)
+	{
+		ft_putstr_fd(ERROR, 2);
+		exit(-1);
+	}
+	else if (signal == 0)
+	{
+		ft_putstr_fd(UNSORTED, 2);
+		exit(-1);
+	}
+	else if (signal == 1)
+	{
+		ft_putstr_fd(SORTED, 2);
+		exit(-1);
+	}
 }

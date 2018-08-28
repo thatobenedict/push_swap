@@ -6,13 +6,14 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 11:19:24 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 14:21:17 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:43:17 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isnumber(char *str)
 {
 	int i;
+
 	i = 0;
 	while (str)
 	{
@@ -22,7 +23,6 @@ int		ft_isnumber(char *str)
 			i++;
 		else
 			return (0);
-		
 	}
 	return (1);
 }

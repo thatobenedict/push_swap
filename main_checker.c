@@ -6,14 +6,30 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 17:57:30 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:51:12 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 #include <stdio.h>
 
-int main(int ac, char **av)
+void	creator(t_ps *ps, int ac, char **av)
+{
+	int i;
+
+	i = ac - ps->trig;
+	while (i >= 0)
+	{
+		push(ps->a, ft_atoi(av[i]));
+		i--;
+	}
+	display_stack(ps->a, ps->b);
+	apply(ps);
+	check_sort(ps);
+	display_stack(ps->a, ps->b);
+}
+
+int		main(int ac, char **av)
 {
 	t_ps	*ps;
 
@@ -24,29 +40,19 @@ int main(int ac, char **av)
 		ps->trig = 2;
 		ac = ft_white_word_count(av[1]) + 1;
 		av = ft_strsplit(av[1], ' ');
-		ft_duplicates (av, ac - 1);
+		ft_duplicates(av, ac - 1);
 		is_digits(av, ps);
 		is_int(av, ps);
 	}
 	else
 	{
 		ps->trig = 1;
-		ft_duplicates (av, ac);
+		ft_duplicates(av, ac);
 		is_digits(av, ps);
 		is_int(av, ps);
 	}
 	ps->a = new_stack(ac - 1);
 	ps->b = new_stack(ac - 1);
-
-	int i = ac - ps->trig;
-	while (i >= 0)
-	{
-		push(ps->a, ft_atoi(av[i]));
-		i--;
-	}
-	display_stack(ps->a, ps->b);
-	apply(ps);
-	check_sort(ps);
-	display_stack(ps->a, ps->b);
-	return 0;
+	creator(ps, ac, av);
+	return (0);
 }
