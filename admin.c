@@ -6,11 +6,17 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 11:38:20 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 11:43:52 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
+
+void	ft_initial(t_ps *ps)
+{
+	ps->trig = 0;
+	ps->gnl.line = NULL;
+}
 
 void	ft_duplicates(char **numbers, int count)
 {

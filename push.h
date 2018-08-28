@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 11:23:29 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 15:41:35 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # define ERROR "Error\n"
 # include "get_next_line/get_next_line.h"
 # include <stdlib.h>
+
+typedef struct	s_gnl
+{
+	int			fd;
+	char		*line;
+}				t_gnl;
 
 typedef struct	s_stack
 {
@@ -32,6 +38,7 @@ typedef struct	s_ps
 	t_stack		*a;
 	t_stack		*b;
 	int			trig;
+	t_gnl		gnl;
 }				t_ps;
 /*
 ** Prototypes for main.c
@@ -45,6 +52,7 @@ int			stack_state(t_stack *ps);
 void		push(t_stack *ps, int integer);
 int			pop(t_stack *ps);
 void		display_stack(t_stack *a, t_stack *b);
+void		ft_initial(t_ps  *ps);
 void		ft_duplicates(char **numbers, int count);
 void		is_digits(char **numbers, t_ps *ps);
 void		is_int(char **numbers, t_ps *ps);
