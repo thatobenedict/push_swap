@@ -6,14 +6,14 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 16:13:42 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/19 16:13:50 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 16:00:43 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoin_2(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		size;
 	char	*new;

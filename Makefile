@@ -6,7 +6,7 @@
 #    By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 13:40:11 by tbenedic          #+#    #+#              #
-#    Updated: 2018/08/28 09:49:57 by tbenedic         ###   ########.fr        #
+#    Updated: 2018/08/28 15:46:51 by tbenedic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = checker
 SRCC = $(addsuffix .c, $(FUNCS))
 SRCO = $(addsuffix .o, $(FUNCS_O))
 FUNCS =	main_checker stack_basics display admin operations1 operations2 \
-		operations3 
+		operations3 operations_inline get_next_line/get_next_line
 LIBFT = get_next_line/libft/libft.a
 HEAD  = push.h
 

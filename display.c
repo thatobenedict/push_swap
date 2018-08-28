@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:58:36 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/27 09:53:55 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 16:36:53 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,28 @@ void	display_stack(t_stack *a, t_stack *b)
 	{
 		if (i >= 0)
 		{
-			ft_putnbr(a->array[i]);
-			ft_putchar('\t');
+			ft_putnbr_fd(a->array[i], 2);
+			ft_putchar_fd('\t', 2);
 		}
 		else
 		{
-			ft_putstr("--");
-			ft_putchar('\t');
+			ft_putstr_fd("--", 2);
+			ft_putchar_fd('\t', 2);
 		}
 		if (j >= 0)
 		{
-			ft_putnbr(b->array[j]);
-			ft_putchar('\n');
+			ft_putnbr_fd(b->array[j], 2);
+			ft_putchar_fd('\n', 2);
 		}
 		else
 		{
-			ft_putstr("--");
-			ft_putchar('\n');
+			ft_putstr_fd("--", 2);
+			ft_putchar_fd('\n', 2);
 		}
 		i--;
 		j--;
 	}
-	ft_putstr("--\t--\nA\tB\n");
+	ft_putstr_fd("--\t--\nA\tB\n", 2);
 }
 
 void	display_top(t_stack *ps)

@@ -6,12 +6,11 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 11:06:59 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/13 11:08:02 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/28 15:56:05 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 static int		new_line_ind(char *buf)
 {
@@ -50,7 +49,7 @@ int				get_next_line(const int fd, char **line)
 	while ((buffout = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[buffout] = '\0';
-		temp = ft_strjoin_2(keep[fd], buf);
+		temp = ft_strjoin(keep[fd], buf);
 		free(keep[fd]);
 		keep[fd] = ft_strdup(temp);
 		free(temp);
