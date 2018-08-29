@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 18:25:50 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:00:30 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # define ERROR "Error\n"
 # include "get_next_line/get_next_line.h"
 # include <stdlib.h>
+
+typedef struct  s_cord
+{
+	int			x;
+	int			y;
+}				t_cord;
 
 typedef struct	s_gnl
 {
@@ -39,6 +45,7 @@ typedef struct	s_ps
 	t_stack		*b;
 	int			trig;
 	t_gnl		gnl;
+	t_cord		flag;
 }				t_ps;
 /*
 ** Prototypes for main.c
@@ -59,6 +66,7 @@ void		is_int(char **numbers, t_ps *ps);
 void		apply(t_ps *ps);
 void		check_sort(t_ps *stack);
 void		message(int signal);
+void		err_admin(int ac, char **av, t_ps *ps);
 void		ft_sa(t_ps *stack);
 void		ft_sb(t_ps *stack);
 void		ft_ss(t_ps *stack);

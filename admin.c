@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 18:36:39 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:00:26 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_initial(t_ps *ps)
 {
 	ps->trig = 0;
 	ps->gnl.line = NULL;
+	ps->flag.x = 0;
+	ps->flag.y = 0;
 }
 
 void	ft_duplicates(char **numbers, int count)
@@ -85,4 +87,11 @@ void	is_int(char **numbers, t_ps *ps)
 			message(-1);
 		i++;
 	}
+}
+
+void	err_admin(int ac, char **av, t_ps *ps)
+{
+	ft_duplicates(av, ac);
+	is_digits(av, ps);
+	is_int(av, ps);
 }

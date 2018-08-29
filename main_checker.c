@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/29 09:29:23 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:00:28 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,25 @@ int		main(int ac, char **av)
 
 	ps = ft_memalloc(sizeof(t_ps));
 	ft_initial(ps);
-	if (ac == 2)
+	if (ft_strcmp(av[1],"-v") == 0 || ft_strcmp(av[2], "-c") == 0 ||
+				ft_strcmp(av[2],"-v") == 0 || ft_strcmp(av[1], "-c") == 0)
+	{
+		if (ft_strcmp(av[1],"-v") == 0 || ft_strcmp(av[2], "-v") == 0)
+			ps->flag.x = 1;
+		if (ft_strcmp(av[1],"-c") == 0 || ft_strcmp(av[2], "-c") == 0)
+			ps->flag.y = 1;  //to be removed to a separate function
+	}
+	if (ac == 2 + ps->flag.x + ps->flag.y)
 	{
 		ps->trig = 2;
-		ac = ft_white_word_count(av[1]) + 1;
-		av = ft_strsplit(av[1], ' ');
-		ft_duplicates(av, ac - 1);
-		is_digits(av, ps);
-		is_int(av, ps);
+		ac = ft_white_word_count(av[1 + ps->flag.x + ps->flag.y]) + 1;
+		av = ft_strsplit(av[1 + ps->flag.x + ps->flag.y], ' ');
+		err_admin(ac - 1, av, ps);
 	}
 	else
 	{
 		ps->trig = 1;
-		ft_duplicates(av, ac);
-		is_digits(av, ps);
-		is_int(av, ps);
+		err_admin(ac, av, ps);
 	}
 	ps->a = new_stack(ac - 1);
 	ps->b = new_stack(ac - 1);
