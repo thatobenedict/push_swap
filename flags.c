@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/19 18:09:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/22 17:29:16 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/08/30 11:39:10 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/08/30 11:41:34 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push.h"
-#include <stdio.h>
+//###HOLDING ON TO THIS 
+//###MAKE IT FUNCTIONAL FOR LATER
 
-int main()
-{
-	t_stack *a;
-	a = new_stack(100);
-
-	push(a, 10);
-	push(a, 20);
-	push(a, 30);
-
-	printf("%d popped from stack\n", pop(a));
-
-	return 0;
-}
+if (ft_strcmp(av[1],"-v") == 0 || ft_strcmp(av[2], "-v") == 0 ||
+				ft_strcmp(av[1],"-c") == 0 || ft_strcmp(av[2], "-c") == 0)
+	{
+		if (ft_strcmp(av[1],"-v") == 0 || ft_strcmp(av[2], "-v") == 0)
+			ps->flag.x = 0;
+		if (ft_strcmp(av[1],"-c") == 0 || ft_strcmp(av[2], "-c") == 0)
+			ps->flag.y = 0;
+	}

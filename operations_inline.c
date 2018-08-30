@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 11:58:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/29 18:00:25 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/30 12:25:50 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void	apply(t_ps *ps)
 			ft_rrb(ps);
 		else if (ft_strcmp(ps->gnl.line,"rrr") == 0)
 			ft_rrr(ps);
-		else if (ft_strcmp(ps->gnl.line,"quit") == 0)
+		else if (ft_strcmp(ps->gnl.line,"quit") == 0 ||
+				ft_strcmp(ps->gnl.line,"exit") == 0 ||
+				ft_strcmp(ps->gnl.line,"check") == 0)
 			break ;
-		if (ps->flag.x == 1)
+		if (ps->flag.x == 1 || ft_strcmp(ps->gnl.line,"display") == 0)
 			display_stack(ps->a, ps->b);
 	}
 }

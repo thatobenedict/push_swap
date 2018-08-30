@@ -6,12 +6,11 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 07:35:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 16:12:55 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/30 12:35:10 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
-#include <stdio.h>
 
 t_stack		*new_stack(size_t size)
 {
