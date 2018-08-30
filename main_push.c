@@ -6,13 +6,25 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 12:45:02 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/30 13:05:12 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int main(int ac, char **av)
+void	push_creator(t_ps *ps, int ac, char **av)
+{
+	int i;
+
+	i = ac - ps->trig;
+	while (i >= 0)
+	{
+		push(ps->a, ft_atoi(av[i]));
+		i--;
+	}
+}
+
+int		main(int ac, char **av)
 {
 	t_ps	*ps;
 
@@ -32,5 +44,6 @@ int main(int ac, char **av)
 	}
 	ps->a = new_stack(ac - 1);
 	ps->b = new_stack(ac - 1);
+	push_creator(ps, ac, av);
 	return 0;
 }
