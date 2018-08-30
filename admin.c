@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 12:34:34 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/30 17:33:04 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,13 @@ void	is_int(char **numbers, t_ps *ps)
 
 void	err_admin(int ac, char **av, t_ps *ps)
 {
+//	if (ac == 0)
+//	{
+//		message(-2);
+//		ft_putstr_fd("No Numeric Parameters Inputed\n", 2);
+//		exit (-1);
+//	}
+
 	ft_duplicates(av, ac);
 	is_digits(av, ps);
 	is_int(av, ps);

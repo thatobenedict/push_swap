@@ -6,12 +6,12 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 13:05:12 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/30 17:33:06 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
-
+#include <stdio.h>
 void	push_creator(t_ps *ps, int ac, char **av)
 {
 	int i;
@@ -22,6 +22,8 @@ void	push_creator(t_ps *ps, int ac, char **av)
 		push(ps->a, ft_atoi(av[i]));
 		i--;
 	}
+	fprintf(stderr, "########%i\n",ps->a->top);
+//	display_stack(ps->a, ps->b);
 }
 
 int		main(int ac, char **av)

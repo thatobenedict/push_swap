@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:58:36 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 12:35:57 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:53:52 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	message(int signal)
 		ft_putstr_fd(ERROR, 2);
 		exit(-1);
 	}
+	if (signal == -2)
+		ft_putstr_fd(ERROR, 2);
 	else if (signal == 0)
 	{
 		ft_putstr_fd(UNSORTED, 2);
