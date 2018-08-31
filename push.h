@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 17:33:11 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/31 11:43:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_stack
 	int			top;
 	int			size;
 	int			*array;
+	int			mid;
 }				t_stack;
 
 typedef struct	s_ps
