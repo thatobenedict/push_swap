@@ -20,13 +20,16 @@ void	ft_initial(t_ps *ps)
 	ps->flag.y = 0;
 }
 
-void	ft_duplicates(char **numbers, int count)
+void	ft_duplicates(t_ps *ps, char **numbers, int count)
 {
 	int i;
 	int j;
 	int end;
 
-	i = 0;
+	if (ps->trig == 1)
+		i = 1;
+	else
+		i = 0;
 	j = 0;
 	end = count;
 	while (i < end)
@@ -91,14 +94,13 @@ void	is_int(char **numbers, t_ps *ps)
 
 void	err_admin(int ac, char **av, t_ps *ps)
 {
-//	if (ac == 0)
-//	{
-//		message(-2);
-//		ft_putstr_fd("No Numeric Parameters Inputed\n", 2);
-//		exit (-1);
-//	}
-
-	ft_duplicates(av, ac);
+	if ((ps->trig == 2 && ac == 0) || (ps->trig == 1 && ac == 1))
+	{
+		message(-2);
+		ft_putstr_fd("No Numeric Parameters Inputed\n", 2);
+		exit (-1);
+	}
+	ft_duplicates(ps, av, ac);
 	is_digits(av, ps);
 	is_int(av, ps);
 }

@@ -18,6 +18,7 @@
 # define ERROR "Error\n"
 # include "get_next_line/get_next_line.h"
 # include <stdlib.h>
+# include <stdio.h> //////// DELETE THIS GUY BRUH
 
 typedef struct	s_cord
 {
@@ -53,7 +54,7 @@ typedef struct	s_ps
 **================================= ======================= admin.c
 */
 void			ft_initial(t_ps	*ps);
-void			ft_duplicates(char **numbers, int count);
+void			ft_duplicates(t_ps *ps, char **numbers, int count);
 void			is_digits(char **numbers, t_ps *ps);
 void			is_int(char **numbers, t_ps *ps);
 void			err_admin(int ac, char **av, t_ps *ps);

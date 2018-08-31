@@ -42,10 +42,11 @@ void	apply(t_ps *ps)
 				ft_strcmp(ps->gnl.line,"exit") == 0 ||
 				ft_strcmp(ps->gnl.line,"check") == 0)
 			break ;
-		if (ps->flag.x == 1 || ft_strcmp(ps->gnl.line,"display") == 0)
-			display_stack(ps->a, ps->b);
 		else
-		   message(-2);	
+			message(-2);
+		if (ps->flag.x == 1 || ft_strcmp(ps->gnl.line,"display") == 0) //display is temporary
+			display_stack(ps->a, ps->b);
+
 	}
 }
 
