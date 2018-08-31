@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/31 11:43:37 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/31 16:57:32 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,14 @@ typedef struct	s_stack
 	int			mid;
 }				t_stack;
 
+typedef struct  s_score
+{
+	int			mag_a;
+	int			mag_b;
+	int			dir_a;
+	int			dir_b;
+}				t_score;
+
 typedef struct	s_ps
 {
 	t_stack		*a;
@@ -47,8 +55,9 @@ typedef struct	s_ps
 	int			trig;
 	t_gnl		gnl;
 	t_cord		flag;
-	t_cord		a_score;
-	t_cord		b_score;
+	t_score		top;
+//	t_cord		a_vector; reconsider this form
+//	t_cord		b_vector; reconsider this form
 }				t_ps;
 
 /*
