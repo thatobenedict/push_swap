@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 13:22:25 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/31 16:57:06 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/01 15:28:19 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,42 @@ int		score_gen(int i_a, int i_b, t_ps *ps)
 
 	pretend_to_compile = 0;
 	score = i_a + i_b;
+}
+
+int		who_max(t_stack *array)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (i < array->top)
+	{
+		if (j < array->array[i])
+			j = array->array[i];
+		i++;
+	}
+	return (j);
+}
+
+int		check_cycle(t_stack *stack)
+{
+	int i;
+	int j;
+	int k;
+
+	i = 0;
+	j = 0;
+	k = 0;;
+	while (i < stack->top)
+	{
+		if (stack->array[i] < stack->array[i + 1])
+			j++;
+		if (stack->array[i] > stack->array[i + 1])
+			k++;
+		i++;
+	}
+	if ()
 }
 
 void		valid_rot(t_ps *ps) // remember to make look pretty / clearer / you're assuming odd for now

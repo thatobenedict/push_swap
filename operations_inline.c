@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 11:58:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 17:33:02 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/01 12:02:45 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ void	apply(t_ps *ps)
 			break ;
 		else
 			message(-2);
-		if (ps->flag.x == 1 || ft_strcmp(ps->gnl.line,"display") == 0) //display is temporary
+		if (ps->flag.x == 1) //display is temporary
 			display_stack(ps->a, ps->b);
+		display_stack(ps->a, ps->b);
 
 	}
 }
