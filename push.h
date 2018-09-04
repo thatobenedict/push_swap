@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/01 15:28:24 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:37:24 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,12 @@ void			ft_rrr(t_ps *stack);
 void			apply(t_ps *ps);
 void			check_sort(t_ps *stack);
 int				check_sort_int(t_ps *ps);
+/*
+ ** ======================================================== algo.c
+ */
+int				between(int a, int z, int x);
+int				score_gen(int i_a, int i_b);//, t_ps *ps);
+int				who_max(t_stack *array);
+int				check_cycle(t_stack *stack);
+void			valid_rot(t_ps *ps);
 #endif

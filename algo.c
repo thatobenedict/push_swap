@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 13:22:25 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/01 15:28:19 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:37:20 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int		between(int a, int z, int x)
 	}
 }
 
-int		score_gen(int i_a, int i_b, t_ps *ps)
+int		score_gen(int i_a, int i_b)//, t_ps *ps)
 {
 	int score;
-	int pretend_to_compile = ps->trig;
+//	int pretend_to_compile = ps->trig;
 
-	pretend_to_compile = 0;
+//	pretend_to_compile = 0;
 	score = i_a + i_b;
 	return (score);
 }
@@ -71,9 +71,9 @@ int		check_cycle(t_stack *stack)
 	k = 0;;
 	while (i < stack->top)
 	{
-		if (stack->array[i] < stack->array[i + 1] && j > 0)
+		if (stack->array[i] < stack->array[i + 1] && k > 0)
 			j++;
-		if (stack->array[i] > stack->array[i + 1] && k > 0)
+		if (stack->array[i] > stack->array[i + 1] && j > 0)
 			k++;
 		i++;
 	}
@@ -90,13 +90,14 @@ void		valid_rot(t_ps *ps) // remember to make look pretty / clearer / you're ass
 	int top_score;
 	int score;
 
-	i_a = ps->b->top;
+	i_a = ps->a->top;
 	i_b = ps->b->top;
 	top_score = 0;
 	score = 0;
 	ps->a->mid = (ps->a->top / 2);
 	ps->b->mid = (ps->b->top / 2);
-
+		printf("A MID %i\n",ps->a->mid);
+		printf("B MID %i\n",ps->b->mid);
 	while (i_b > 0)
 	{
 		ps->a->mid = (ps->a->top / 2);
@@ -105,7 +106,7 @@ void		valid_rot(t_ps *ps) // remember to make look pretty / clearer / you're ass
 			if (between(ps->b->array[i_b], ps->b->array[i_b - 1],
 						ps->a->array[i_a]) == 0)
 			{
-				score = score_gen(i_a, i_b, ps);
+				score = score_gen(i_a, i_b);
 				if (top_score > score)
 				{
 					top_score = score;
@@ -129,8 +130,8 @@ void		valid_rot(t_ps *ps) // remember to make look pretty / clearer / you're ass
 						ps->top.mag_b = i_a - ps->b->mid;
 						ps->top.dir_a = 0;
 					}
-					ps->top.dir_a = ps->b->mid;
-					ps->top.dir_b = ps->b->mid;
+					ps->top.dir_a = i_a; //ps->b->mid;
+					ps->top.dir_b = i_b; //ps->b->mid;
 				}	
 			}
 			i_a--;
