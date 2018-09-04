@@ -18,6 +18,8 @@ void	ft_initial(t_ps *ps)
 	ps->gnl.line = NULL;
 	ps->flag.x = 0;
 	ps->flag.y = 0;
+	ps->top.dir_a = 0;
+	ps->top.dir_b = 0;
 }
 
 void	ft_duplicates(t_ps *ps, char **numbers, int count)

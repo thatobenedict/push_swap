@@ -92,7 +92,6 @@ void	push_creator(t_ps *ps, int ac, char **av)
 		push(ps->a, ft_atoi(av[i]));
 		i--;
 	}
-//	fprintf(stderr, "########%i\n",ps->a->top);
 	while (check_sort_int(ps) == 1)
 	{
 		j = -1;
@@ -100,8 +99,8 @@ void	push_creator(t_ps *ps, int ac, char **av)
 		valid_rot(ps);
 		make_play(j, k, ps);
 		print_play(j, k, ps);
-		ft_pb(ps);
-		ft_putstr_fd("pb\n", 2);
+	//	ft_pb(ps);
+	//	ft_putstr_fd("pb\n", 2);
 //		display_stack(ps->a, ps->b);
 	}
 	display_stack(ps->a, ps->b);

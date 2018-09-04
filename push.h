@@ -110,7 +110,7 @@ int				check_sort_int(t_ps *ps);
  ** ======================================================== algo.c
  */
 int				between(int a, int z, int x);
-int				score_gen(int i_a, int i_b);//, t_ps *ps);
+int				score_gen(int i_a, int i_b, t_ps *ps);
 int				who_max(t_stack *array);
 int				check_cycle(t_stack *stack);
 void			valid_rot(t_ps *ps);

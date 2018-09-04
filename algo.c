@@ -14,29 +14,42 @@
 
 int		between(int a, int z, int x)
 {
-	if (a > z)
-	{
-		if (x < a && x > z)
-			return (0);
-		else
-			return (1);
-	}
-	else
+	if (a < z)
 	{
 		if (x > a && x < z)
 			return (0);
 		else
 			return (1);
 	}
+	else
+	{
+		if (x > z && x < a)
+			return (0);
+		else
+			return (1);
+	}
 }
 
-int		score_gen(int i_a, int i_b)//, t_ps *ps)
+int		score_gen(int i_a, int i_b,t_ps *ps)
 {
 	int score;
-//	int pretend_to_compile = ps->trig;
 
-//	pretend_to_compile = 0;
 	score = i_a + i_b;
+	if (i_a < ps->a->mid)
+	{
+		ps->top.mag_a = i_a - ps->a->mid;// + 1;
+		ps->top.dir_a = 1;
+	}
+	else
+		ps->top.mag_a = i_a - ps->a->mid;
+	if (i_b < ps->b->mid)
+	{
+		ps->top.mag_b = i_b - ps->b->mid;// + 1;
+		ps->top.dir_b = 1;
+	}
+	else
+		ps->top.mag_b = i_a - ps->b->mid;
+
 	return (score);
 }
 
@@ -57,9 +70,9 @@ int		who_max(t_stack *array)
 }
 
 /*
-** Return 1 if there is a cycle detected
-** Return 0 if there is NO cycle detected
-*/
+ ** Return 1 if there is a cycle detected
+ ** Return 0 if there is NO cycle detected
+ */
 int		check_cycle(t_stack *stack)
 {
 	int i;
@@ -94,42 +107,23 @@ void		valid_rot(t_ps *ps) // remember to make look pretty / clearer / you're ass
 	i_b = ps->b->top;
 	top_score = 0;
 	score = 0;
-	ps->a->mid = (ps->a->top / 2);
-	ps->b->mid = (ps->b->top / 2);
-		printf("A MID %i\n",ps->a->mid);
-		printf("B MID %i\n",ps->b->mid);
+	ps->a->mid = ((ps->a->top + 1) / 2);
+	ps->b->mid = ((ps->b->top + 1) / 2);
+	printf("A MID %i\n",ps->a->mid);
+	printf("B MID %i\n",ps->b->mid);
 	while (i_b > 0)
 	{
-		ps->a->mid = (ps->a->top / 2);
-		while (i_a >= 0)
+		i_a = ps->a->top;
+		while (i_a > 0)
 		{
 			if (between(ps->b->array[i_b], ps->b->array[i_b - 1],
 						ps->a->array[i_a]) == 0)
 			{
-				score = score_gen(i_a, i_b);
+				printf("%s\n","hello");
+				score = score_gen(i_a, i_b, ps);
 				if (top_score > score)
 				{
 					top_score = score;
-					if (i_a < ps->a->mid)
-					{
-						ps->top.mag_a = i_a - ps->a->mid + 1;
-						ps->top.dir_a = 1;
-					}
-					else
-					{
-						ps->top.mag_a = i_a - ps->a->mid;
-						ps->top.dir_a = 0;
-					}
-					if (i_b < ps->b->mid)
-					{
-						ps->top.mag_b = i_b - ps->b->mid + 1;
-						ps->top.dir_b = 1;
-					}
-					else
-					{
-						ps->top.mag_b = i_a - ps->b->mid;
-						ps->top.dir_a = 0;
-					}
 					ps->top.dir_a = i_a; //ps->b->mid;
 					ps->top.dir_b = i_b; //ps->b->mid;
 				}	
@@ -139,19 +133,5 @@ void		valid_rot(t_ps *ps) // remember to make look pretty / clearer / you're ass
 		i_b--;
 	}
 }
-
-/*
-   void	sort_10(t_ps *ps)
-   {
-   int i;
-
-   i = 0;
-   if (ps->a->top == 2)
-   {
-   while (check_sort_int(ps) == 1)
-   {
-   }
-   }
-   }*/
 // GET THE GENERAL SOLUTION GOING FIRST BUB,
 // THEN  DIG INTO THE PARTICULAR SOLUTION
