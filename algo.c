@@ -37,6 +37,7 @@ int		score_gen(int i_a, int i_b, t_ps *ps)
 
 	pretend_to_compile = 0;
 	score = i_a + i_b;
+	return (score);
 }
 
 int		who_max(t_stack *array)
@@ -55,6 +56,10 @@ int		who_max(t_stack *array)
 	return (j);
 }
 
+/*
+** Return 1 if there is a cycle detected
+** Return 0 if there is NO cycle detected
+*/
 int		check_cycle(t_stack *stack)
 {
 	int i;
@@ -66,13 +71,16 @@ int		check_cycle(t_stack *stack)
 	k = 0;;
 	while (i < stack->top)
 	{
-		if (stack->array[i] < stack->array[i + 1])
+		if (stack->array[i] < stack->array[i + 1] && j > 0)
 			j++;
-		if (stack->array[i] > stack->array[i + 1])
+		if (stack->array[i] > stack->array[i + 1] && k > 0)
 			k++;
 		i++;
 	}
-	if ()
+	if (i == j + k)
+		return (1);
+	else
+		return (0);
 }
 
 void		valid_rot(t_ps *ps) // remember to make look pretty / clearer / you're assuming odd for now

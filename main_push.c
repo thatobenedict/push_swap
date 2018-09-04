@@ -23,7 +23,7 @@ void	push_creator(t_ps *ps, int ac, char **av)
 		i--;
 	}
 	fprintf(stderr, "########%i\n",ps->a->top);
-//	display_stack(ps->a, ps->b);
+	display_stack(ps->a, ps->b);
 }
 
 int		main(int ac, char **av)
