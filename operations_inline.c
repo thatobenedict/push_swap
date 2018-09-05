@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 11:58:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/01 12:02:45 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/05 11:55:04 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	apply(t_ps *ps)
 			break ;
 		else
 			message(-2);
-		if (ps->flag.x == 1) //display is temporary
+		if (ps->flag.x == 1) //display below is temporary
 			display_stack(ps->a, ps->b);
 		display_stack(ps->a, ps->b);
 

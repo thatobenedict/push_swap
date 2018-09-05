@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/04 18:37:24 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/05 18:08:13 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_stack			*new_stack(size_t size);
 int				stack_state(t_stack *ps);
 void			push(t_stack *ps, int integer);
 int				pop(t_stack *ps);
+int				ret_index(int value, t_stack *array);
 /*
 ** ======================================================== display.c
 */
@@ -110,8 +111,14 @@ int				check_sort_int(t_ps *ps);
  ** ======================================================== algo.c
  */
 int				between(int a, int z, int x);
-int				score_gen(int i_a, int i_b, t_ps *ps);
+void			score_gen(int i_a, int i_b, t_ps *ps);
+int				who_min(t_stack *array);
 int				who_max(t_stack *array);
 int				check_cycle(t_stack *stack);
 void			valid_rot(t_ps *ps);
+/*
+ ** ======================================================== algo.c
+ */
+void			hard_sort3(t_ps *ps);
+void			hard_sort5(t_ps *ps);
 #endif

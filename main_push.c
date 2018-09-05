@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/04 18:37:21 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/05 18:08:08 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,18 +92,28 @@ void	push_creator(t_ps *ps, int ac, char **av)
 		push(ps->a, ft_atoi(av[i]));
 		i--;
 	}
+	ft_pb(ps);
+	ft_putstr_fd("pb\n", 2);
+	ft_pb(ps);
+	ft_putstr_fd("pb\n", 2);
+	display_stack(ps->a, ps->b);
 	while (check_sort_int(ps) == 1)
 	{
 		j = -1;
 		k = -1;
+		ps->top.dir_a = 0;
+		ps->top.dir_b = 0;
+		ps->top.mag_a = 0;
+		ps->top.mag_b = 0;
+		display_stack(ps->a, ps->b);
 		valid_rot(ps);
 		make_play(j, k, ps);
 		print_play(j, k, ps);
-	//	ft_pb(ps);
-	//	ft_putstr_fd("pb\n", 2);
-//		display_stack(ps->a, ps->b);
+		ft_pb(ps);
+		ft_putstr_fd("pb\n", 2);
+		display_stack(ps->a, ps->b);
 	}
-	display_stack(ps->a, ps->b);
+	//	display_stack(ps->a, ps->b);
 }
 
 int		main(int ac, char **av)
@@ -126,7 +136,9 @@ int		main(int ac, char **av)
 	}
 	ps->a = new_stack(ac - 1);
 	ps->b = new_stack(ac - 1);
-	push_creator(ps, ac, av);
-	valid_rot(ps);
+		display_stack(ps->a, ps->b);
+	//	if (ac == 4)
+	//		hard_sort3(ps);
+	//	push_creator(ps, ac, av);
 	return 0;
 }
