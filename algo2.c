@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 17:17:26 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/05 18:08:10 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/06 13:00:33 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,55 @@
 
 void	hard_sort3(t_ps *ps)
 {
-	int i;
-
-	i = 0;
-	if (who_min(ps->a) == 2 && who_max(ps->a) == 1)
+	if (ret_index(who_min(ps->a), ps->a) == 0)
 	{
-		ft_ra(ps);
-		ft_putstr_fd("ra\n", 2);
+		if (ret_index(who_max(ps->a), ps->a) == 2)
+			do_sa(ps);
+		do_rra(ps);
 	}
-	else //(ret_index(who_min(ps->a)) == 2 && ret_index(who_max(ps->a)) == 1)
+	else if (ret_index(who_min(ps->a), ps->a) == 1)
 	{
-		ft_rra(ps);
-		ft_putstr_fd("rra\n", 2);
+		if (ret_index(who_max(ps->a), ps->a) == 2)
+			do_ra(ps);
+		else
+			do_sa(ps);
+	}
+	else
+	{
+		do_sa(ps);
+		do_ra(ps);
 	}
 	display_stack(ps->a, ps->b);
-	exit (1);
+	if (ps->hard_trig == 0)
+		exit(1);
+	ps->hard_trig = 0;
 }
-/*
+
 void	hard_sort5(t_ps *ps)
 {
-}*/
+	int i;
+	int j;
+	int k;
+
+	i = 0;
+	while (i < 2)
+	{
+		j = 0;
+		k = ret_index(who_min(ps->a), ps->a);
+		while (j <= k)
+		{
+			do_rra(ps);
+			j++;
+		}
+		do_pb(ps);
+		i++;
+	}
+	ps->hard_trig = 1;
+	hard_sort3(ps);
+	do_pa(ps);
+	do_pa(ps);
+	display_stack(ps->a, ps->b);
+	if (ps->hard_trig == 0)
+		exit(1);
+	ps->hard_trig = 0;
+}

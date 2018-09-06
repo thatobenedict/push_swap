@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 11:06:59 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/28 15:56:05 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:01:50 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int				get_next_line(const int fd, char **line)
 		return (READ_COMPLETE);
 	*line = ft_strndup(keep[fd], new_line_ind(keep[fd]));
 	keep[fd] = ft_remainder(keep[fd]);
+	free(keep[fd]);
 	return (READ_SUCCESS);
 }

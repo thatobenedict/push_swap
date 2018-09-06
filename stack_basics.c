@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 07:35:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/05 16:03:57 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/06 09:13:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		ret_index(int value, t_stack *stack)
 	{
 		if (value == stack->array[i])
 			return (i);
+		i++;
 	}
 	return (-1);
 }

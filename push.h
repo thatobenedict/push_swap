@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/05 18:08:13 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:01:52 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ typedef struct	s_ps
 	t_gnl		gnl;
 	t_cord		flag;
 	t_score		top;
-//	t_cord		a_vector; reconsider this form
-//	t_cord		b_vector; reconsider this form
+	int			hard_trig;
+	int			ac;
+	char		**av;
 }				t_ps;
-
 /*
-**================================= ======================= admin.c
+** ======================================================== admin.c
 */
 void			ft_initial(t_ps	*ps);
 void			ft_duplicates(t_ps *ps, char **numbers, int count);
@@ -121,4 +121,24 @@ void			valid_rot(t_ps *ps);
  */
 void			hard_sort3(t_ps *ps);
 void			hard_sort5(t_ps *ps);
+/*
+ ** ======================================================== do_ps1.c
+ */
+void			do_sa(t_ps *stack);
+void			do_sb(t_ps *stack);
+void			do_ss(t_ps *stack);
+void			do_pa(t_ps *stack);
+void			do_pb(t_ps *stack);
+/*
+ ** ======================================================== do_ps2.c
+ */
+void			do_ra(t_ps *stack);
+void			do_rb(t_ps *stack);
+void			do_rra(t_ps *stack);
+void			do_rrb(t_ps *stack);
+/*
+ ** ======================================================== do_ps3.c
+ */
+void			do_rr(t_ps *stack);
+void			do_rrr(t_ps *stack);
 #endif
