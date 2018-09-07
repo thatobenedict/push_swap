@@ -6,11 +6,28 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 17:17:26 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/06 13:00:33 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:28:30 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
+
+void	rotates(t_ps *ps)
+{
+	int diff;
+
+	if (ret_index(who_min(ps->a), ps->a) > ps->a->top / 2)
+		diff = ps->a->top - ret_index(who_min(ps->a), ps->a);
+	else
+		diff = ret_index(who_min(ps->a), ps->a) + 1;
+	while (--diff >= 0)
+	{
+		if (ret_index(who_min(ps->a), ps->a) > ps->a->top / 2)
+			do_ra(ps);
+		else
+			do_rra(ps);
+	}
+}
 
 void	hard_sort2(t_ps *ps)
 {
@@ -47,26 +64,19 @@ void	hard_sort3(t_ps *ps)
 void	hard_sort4_5(t_ps *ps)
 {
 	int i;
-	int j;
-	int k;
 
-	i = 0;
-	while (i < ((ps->ac - 1) % 2) + 1)
+	i = -1;
+	while (++i < ((ps->ac - 1) % 2) + 1)
 	{
-		j = 0;
-		k = ret_index(who_min(ps->a), ps->a);
-		while (j <= k)
-		{
-			do_rra(ps);
-			j++;
-		}
+		rotates(ps);
 		do_pb(ps);
-		i++;
 	}
 	ps->hard_trig = 1;
-	hard_sort3(ps);
-	do_pa(ps);
-	do_pa(ps);
+	if (check_sort_stack(ps->a) == 1)
+		hard_sort3(ps);
+	i = -1;
+	while (++i < ((ps->ac - 1) % 2) + 1)
+		do_pa(ps);
 	if (ps->hard_trig == 0)
 		exit(1);
 	ps->hard_trig = 0;

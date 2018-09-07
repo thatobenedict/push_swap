@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:31:25 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/06 17:30:19 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:38:48 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ void	check_creator(t_ps *ps, int ac, char **av)
 		push(ps->a, ft_atoi(av[i]));
 		i--;
 	}
-	display_stack(ps->a, ps->b);
 	apply(ps);
 	check_sort(ps);
-	display_stack(ps->a, ps->b);
 }
 
 int		main(int ac, char **av)
@@ -34,11 +32,11 @@ int		main(int ac, char **av)
 
 	ps = ft_memalloc(sizeof(t_ps));
 	ft_initial(ps);
-	if (ac == 2 + ps->flag.x + ps->flag.y)
+	if (ac == 2)
 	{
 		ps->trig = 2;
-		ac = ft_white_word_count(av[1 + ps->flag.x + ps->flag.y]) + 1;
-		av = ft_strsplit(av[1 + ps->flag.x + ps->flag.y], ' ');
+		ac = ft_white_word_count(av[1]) + 1;
+		av = ft_strsplit(av[1], ' ');
 		err_admin(ac - 1, av, ps);
 	}
 	else

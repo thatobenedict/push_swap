@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/06 17:17:29 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 17:00:36 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,13 +117,13 @@
 **}
 */
 
-void		push_create(t_ps *ps)
+void	push_create(t_ps *ps)
 {
-	if (ps->ac == 2 + ps->flag.x + ps->flag.y)
+	if (ps->ac == 2)
 	{
 		ps->trig = 2;
-		ps->ac = ft_white_word_count(ps->av[1 + ps->flag.x + ps->flag.y]) + 1;
-		ps->av = ft_strsplit(ps->av[1 + ps->flag.x + ps->flag.y], ' ');
+		ps->ac = ft_white_word_count(ps->av[1]) + 1;
+		ps->av = ft_strsplit(ps->av[1], ' ');
 		err_admin(ps->ac - 1, ps->av, ps);
 	}
 	else
@@ -136,8 +136,8 @@ void		push_create(t_ps *ps)
 int		main(int ac, char **av)
 {
 	t_ps	*ps;
-	int i;
-	
+	int		i;
+
 	ps = ft_memalloc(sizeof(t_ps));
 	ft_initial(ps);
 	ps->ac = ac;

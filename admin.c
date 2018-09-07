@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/06 12:11:28 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:45:07 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_initial(t_ps *ps)
 {
 	ps->trig = 0;
 	ps->gnl.line = NULL;
-	ps->flag.x = 0;
-	ps->flag.y = 0;
 	ps->top.dir_a = 0;
 	ps->top.dir_b = 0;
 }

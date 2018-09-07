@@ -6,21 +6,21 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 14:03:06 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 11:14:11 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:40:30 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
 /*
- **	####ROTATE (A only and B only)
- ** ra : rotate a - shift up all elements of stack a by 1.
- ** The first element becomes the last one.
- ** rb : rotate b - shift up all elements of stack b by 1.
- ** The first element becomes the last one.
+**	####ROTATE (A only and B only)
+** ra : rotate a - shift up all elements of stack a by 1.
+** The first element becomes the last one.
+** rb : rotate b - shift up all elements of stack b by 1.
+** The first element becomes the last one.
 */
 
-void	ft_ra(t_ps	*stack)
+void	ft_ra(t_ps *stack)
 {
 	int i;
 	int j;
@@ -39,7 +39,7 @@ void	ft_ra(t_ps	*stack)
 	stack->a->array[0] = temp;
 }
 
-void	ft_rb(t_ps	*stack)
+void	ft_rb(t_ps *stack)
 {
 	int i;
 	int j;
@@ -60,13 +60,13 @@ void	ft_rb(t_ps	*stack)
 
 /*
 ** ####REVERSE ROTATE (A only and B only)
-** rra : reverse rotate a - shift down all elements of stack a by 1. 
+** rra : reverse rotate a - shift down all elements of stack a by 1.
 ** The flast element becomes the first one.
 ** rrb : reverse rotate b - shift down all elements of stack b by 1.
 ** The flast element becomes the first one.
 */
 
-void	ft_rra(t_ps		*stack)
+void	ft_rra(t_ps *stack)
 {
 	int i;
 	int j;
@@ -85,7 +85,7 @@ void	ft_rra(t_ps		*stack)
 	stack->a->array[stack->a->top] = temp;
 }
 
-void	ft_rrb(t_ps		*stack)
+void	ft_rrb(t_ps *stack)
 {
 	int i;
 	int j;

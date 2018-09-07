@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 09:27:01 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/06 12:53:43 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:53:10 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 void	do_sa(t_ps *stack)
 {
 	ft_sa(stack);
-	ft_putstr_fd("sa\n", 2);
+	ft_putstr("sa\n");
 }
 
 void	do_sb(t_ps *stack)
 {
 	ft_sb(stack);
-	ft_putstr_fd("sb\n", 2);
+	ft_putstr("sb\n");
 }
 
 void	do_ss(t_ps *stack)
 {
 	ft_ss(stack);
-	ft_putstr_fd("ss\n", 2);
+	ft_putstr("ss\n");
 }
 
 void	do_pa(t_ps *stack)
 {
 	ft_pa(stack);
-	ft_putstr_fd("pa\n", 2);
+	ft_putstr("pa\n");
 }
 
 void	do_pb(t_ps *stack)
 {
 	ft_pb(stack);
-	ft_putstr_fd("pb\n", 2);
+	ft_putstr("pb\n");
 }

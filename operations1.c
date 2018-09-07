@@ -6,20 +6,20 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:52:02 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 11:13:53 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:36:06 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
 /*
- ** ### SWAP ###
- ** sa : swap a - swap the first 2 elements at the top of stack a.
- ** Do nothing if there is only one or no elements.
- ** sb : swap b - swap the first 2 elements at the top of stack b.
- ** Do nothing if there is only one or no elements.
- ** ss : sa and sb at the same time.
- */
+** ### SWAP ###
+** sa : swap a - swap the first 2 elements at the top of stack a.
+** Do nothing if there is only one or no elements.
+** sb : swap b - swap the first 2 elements at the top of stack b.
+** Do nothing if there is only one or no elements.
+** ss : sa and sb at the same time.
+*/
 
 void	ft_sa(t_ps *stack)
 {
@@ -47,12 +47,12 @@ void	ft_ss(t_ps *stack)
 }
 
 /*
- ** ####PUSH
- ** pa : push a - take the first element at the top of b and
- ** put it at the top of a. Do nothing if b is empty.
- ** pb : push b - take the first element at the top of a and
- ** put it at the top of b. Do nothing if a is empty.
- */
+** ####PUSH
+** pa : push a - take the first element at the top of b and
+** put it at the top of a. Do nothing if b is empty.
+** pb : push b - take the first element at the top of a and
+** put it at the top of b. Do nothing if a is empty.
+*/
 
 void	ft_pa(t_ps *stack)
 {

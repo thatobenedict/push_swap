@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/06 18:01:52 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/07 17:03:30 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define ERROR "Error\n"
 # include "get_next_line/get_next_line.h"
 # include <stdlib.h>
-# include <stdio.h> //////// DELETE THIS GUY BRUH
 
 typedef struct	s_cord
 {
@@ -40,7 +39,7 @@ typedef struct	s_stack
 	int			mid;
 }				t_stack;
 
-typedef struct  s_score
+typedef struct	s_score
 {
 	int			mag_a;
 	int			mag_b;
@@ -54,7 +53,6 @@ typedef struct	s_ps
 	t_stack		*b;
 	int			trig;
 	t_gnl		gnl;
-	t_cord		flag;
 	t_score		top;
 	int			hard_trig;
 	int			ac;
@@ -105,11 +103,13 @@ void			ft_rrr(t_ps *stack);
 ** ======================================================== operations_inline.c
 */
 void			apply(t_ps *ps);
+void			apply_ext(t_ps *ps);
 void			check_sort(t_ps *stack);
 int				check_sort_int(t_ps *ps);
+int				check_sort_stack(t_stack *stack);
 /*
- ** ======================================================== algo.c
- */
+** ======================================================== algo.c
+*/
 int				between(int a, int z, int x);
 void			score_gen(int i_a, int i_b, t_ps *ps);
 int				who_min(t_stack *array);
@@ -117,29 +117,30 @@ int				who_max(t_stack *array);
 int				check_cycle(t_stack *stack);
 void			valid_rot(t_ps *ps);
 /*
- ** ======================================================== algo.c
- */
+** ======================================================== algo2.c
+*/
+void			rotates(t_ps *ps);
 void			hard_sort2(t_ps *pa);
 void			hard_sort3(t_ps *ps);
 void			hard_sort4_5(t_ps *ps);
 /*
- ** ======================================================== do_ps1.c
- */
+** ======================================================== do_ps1.c
+*/
 void			do_sa(t_ps *stack);
 void			do_sb(t_ps *stack);
 void			do_ss(t_ps *stack);
 void			do_pa(t_ps *stack);
 void			do_pb(t_ps *stack);
 /*
- ** ======================================================== do_ps2.c
- */
+** ======================================================== do_ps2.c
+*/
 void			do_ra(t_ps *stack);
 void			do_rb(t_ps *stack);
 void			do_rra(t_ps *stack);
 void			do_rrb(t_ps *stack);
 /*
- ** ======================================================== do_ps3.c
- */
+** ======================================================== do_ps3.c
+*/
 void			do_rr(t_ps *stack);
 void			do_rrr(t_ps *stack);
 #endif
