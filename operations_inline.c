@@ -93,5 +93,3 @@ int		check_sort_int(t_ps *ps)
 	}
 	return (1);
 }
-
-

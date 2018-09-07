@@ -117,32 +117,44 @@
 **}
 */
 
-int		push_create(t_ps *ps, int ac, char **av)
+void		push_create(t_ps *ps)
 {
-	if (ac == 2 + ps->flag.x + ps->flag.y)
+	if (ps->ac == 2 + ps->flag.x + ps->flag.y)
 	{
 		ps->trig = 2;
-		ac = ft_white_word_count(av[1 + ps->flag.x + ps->flag.y]) + 1;
-		av = ft_strsplit(av[1 + ps->flag.x + ps->flag.y], ' ');
-		err_admin(ac - 1, av, ps);
+		ps->ac = ft_white_word_count(ps->av[1 + ps->flag.x + ps->flag.y]) + 1;
+		ps->av = ft_strsplit(ps->av[1 + ps->flag.x + ps->flag.y], ' ');
+		err_admin(ps->ac - 1, ps->av, ps);
 	}
 	else
 	{
 		ps->trig = 1;
-		err_admin(ac, av, ps);
+		err_admin(ps->ac, ps->av, ps);
 	}
-	return (ac);
 }
 
 int		main(int ac, char **av)
 {
 	t_ps	*ps;
-
+	int i;
+	
 	ps = ft_memalloc(sizeof(t_ps));
 	ft_initial(ps);
-	ac = push_create(ps, ac, av);
-		ps->a = new_stack(ac - 1);
+	ps->ac = ac;
+	ps->av = av;
+	push_create(ps);
+	ps->a = new_stack(ac - 1);
 	ps->b = new_stack(ac - 1);
-	hard_sort3(ps);
-	return 0;
+	i = ac - ps->trig + 1;
+	while (--i >= 0)
+		push(ps->a, ft_atoi(av[i]));
+	if (check_sort_int(ps) == 0)
+		return (0);
+	else if (ps->ac == 3)
+		hard_sort2(ps);
+	else if (ps->ac == 4)
+		hard_sort3(ps);
+	else if (ps->ac == 5 || ps->ac == 6)
+		hard_sort4_5(ps);
+	return (0);
 }

@@ -119,8 +119,9 @@ void			valid_rot(t_ps *ps);
 /*
  ** ======================================================== algo.c
  */
+void			hard_sort2(t_ps *pa);
 void			hard_sort3(t_ps *ps);
-void			hard_sort5(t_ps *ps);
+void			hard_sort4_5(t_ps *ps);
 /*
  ** ======================================================== do_ps1.c
  */

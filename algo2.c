@@ -12,6 +12,13 @@
 
 #include "push.h"
 
+void	hard_sort2(t_ps *ps)
+{
+	if (check_sort_int(ps) == 0)
+		exit(1);
+	do_sa(ps);
+}
+
 void	hard_sort3(t_ps *ps)
 {
 	if (ret_index(who_min(ps->a), ps->a) == 0)
@@ -32,20 +39,19 @@ void	hard_sort3(t_ps *ps)
 		do_sa(ps);
 		do_ra(ps);
 	}
-	display_stack(ps->a, ps->b);
 	if (ps->hard_trig == 0)
 		exit(1);
 	ps->hard_trig = 0;
 }
 
-void	hard_sort5(t_ps *ps)
+void	hard_sort4_5(t_ps *ps)
 {
 	int i;
 	int j;
 	int k;
 
 	i = 0;
-	while (i < 2)
+	while (i < ((ps->ac - 1) % 2) + 1)
 	{
 		j = 0;
 		k = ret_index(who_min(ps->a), ps->a);
@@ -61,7 +67,6 @@ void	hard_sort5(t_ps *ps)
 	hard_sort3(ps);
 	do_pa(ps);
 	do_pa(ps);
-	display_stack(ps->a, ps->b);
 	if (ps->hard_trig == 0)
 		exit(1);
 	ps->hard_trig = 0;
