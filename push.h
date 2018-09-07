@@ -16,6 +16,8 @@
 # define SORTED "OK\n"
 # define UNSORTED "KO\n"
 # define ERROR "Error\n"
+# define MIN_INT (-MAX_INT - 1)
+# define MAX_INT 2147483647
 # include "get_next_line/get_next_line.h"
 # include <stdlib.h>
 
@@ -45,6 +47,9 @@ typedef struct	s_score
 	int			mag_b;
 	int			dir_a;
 	int			dir_b;
+	int			top;
+	int			mag;
+	int			dir;
 }				t_score;
 
 typedef struct	s_ps
@@ -53,7 +58,7 @@ typedef struct	s_ps
 	t_stack		*b;
 	int			trig;
 	t_gnl		gnl;
-	t_score		top;
+	t_score		top_score;
 	int			hard_trig;
 	int			ac;
 	char		**av;
@@ -123,6 +128,10 @@ void			rotates(t_ps *ps);
 void			hard_sort2(t_ps *pa);
 void			hard_sort3(t_ps *ps);
 void			hard_sort4_5(t_ps *ps);
+/*
+** ======================================================== algo3.c
+*/
+
 /*
 ** ======================================================== do_ps1.c
 */
