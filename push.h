@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/07 17:03:30 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/08 18:34:35 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct	s_ps
 	t_stack		*b;
 	int			trig;
 	t_gnl		gnl;
-	t_score		top_score;
+	t_score		*tscore;
 	int			hard_trig;
 	int			ac;
 	char		**av;
