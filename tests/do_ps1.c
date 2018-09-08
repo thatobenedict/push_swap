@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   do_ps1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 13:05:38 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/07 18:03:51 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/09/06 09:27:01 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/09/07 14:53:10 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "push.h"
 
-# define READ_SUCCESS 1
-# define READ_COMPLETE 0
-# define READ_ERROR -1
-# define BUFF_SIZE 1
-# define MIN_INT (-MI - 1)
-# define MI 2147483647
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
+void	do_sa(t_ps *stack)
+{
+	ft_sa(stack);
+	ft_putstr("sa\n");
+}
 
-int		get_next_line(const int fd, char **line);
+void	do_sb(t_ps *stack)
+{
+	ft_sb(stack);
+	ft_putstr("sb\n");
+}
 
-#endif
+void	do_ss(t_ps *stack)
+{
+	ft_ss(stack);
+	ft_putstr("ss\n");
+}
+
+void	do_pa(t_ps *stack)
+{
+	ft_pa(stack);
+	ft_putstr("pa\n");
+}
+
+void	do_pb(t_ps *stack)
+{
+	ft_pb(stack);
+	ft_putstr("pb\n");
+}

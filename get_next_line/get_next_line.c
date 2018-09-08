@@ -5,60 +5,107 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 11:06:59 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/07 14:49:37 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/06/08 13:05:22 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/09/07 18:09:57 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "./libft/libft.h"
 
-static int		new_line_ind(char *buf)
+static void	swapnfree(char **var, char *new_val)
+{
+	char	*tmp;
+
+	free(*var);
+	tmp = new_val;
+	*var = tmp;
+}
+
+static int	index_of(const char *s, const char c)
 {
 	int i;
 
 	i = 0;
-	while (buf[i] != '\n' && buf[i] != '\0')
-		i++;
-	return (i);
-}
-
-static char		*ft_remainder(char *line)
-{
-	char	*new;
-
-	new = ft_strchr(line, '\n');
-	if ((new != NULL))
+	if (s != NULL)
 	{
-		new++;
-		new = ft_strdup(new);
+		while (s[i] != '\0')
+		{
+			if (s[i] == c)
+				return (i);
+			i++;
+		}
+		if (s[i] == c)
+			return (i);
 	}
-	return (new);
+	return (READ_ERROR);
 }
 
-int				get_next_line(const int fd, char **line)
+static void	work(char **ret_line, char **buffer, int nl)
 {
-	char		buf[BUFF_SIZE + 1];
-	static char	*keep[9999];
-	int			buffout;
-	char		*temp;
+	char	*tmp;
 
-	if (fd < 0 || !line || BUFF_SIZE < 1 || read(fd, 0, 0) < 0)
+	tmp = ft_strsub(*buffer, 0, nl + 1);
+	tmp[nl] = '\0';
+	swapnfree(ret_line, ft_strjoin(*ret_line, tmp));
+	free(tmp);
+	tmp = ft_strsub(*buffer, nl + 1, BUFF_SIZE);
+	tmp[BUFF_SIZE - nl] = '\0';
+	ft_memmove(*buffer, tmp, ft_strlen(tmp) + 1);
+	if (buffer[0][0] == '\0')
+		ft_bzero(*buffer, (size_t)(BUFF_SIZE + 1));
+	free(tmp);
+}
+
+static int	gnl(const int fd, char **ret_line, char **buffer)
+{
+	int		read_ret;
+	int		nl;
+
+	nl = -1;
+	read_ret = 3;
+	while (nl == -1 && read_ret > 0)
+	{
+		nl = index_of(*buffer, '\n');
+		if (nl != -1)
+			work(ret_line, buffer, nl);
+		else
+		{
+			swapnfree(ret_line, ft_strjoin(*ret_line, *buffer));
+			ft_bzero(*buffer, (size_t)(BUFF_SIZE + 1));
+			if ((read_ret = read(fd, *buffer, BUFF_SIZE)) < 0)
+				return (READ_ERROR);
+			buffer[0][read_ret] = '\0';
+		}
+	}
+	return (read_ret);
+}
+
+int			get_next_line(const int fd, char **line)
+{
+	static char	*buffer[MI];
+	int			read_ret;
+
+	if (fd < 0 || !line || BUFF_SIZE < 0 || read(fd, buffer[fd], 0) < 0)
 		return (READ_ERROR);
-	if (keep[fd] == NULL)
-		keep[fd] = ft_strdup("");
-	while ((buffout = read(fd, buf, BUFF_SIZE)) > 0)
+	if (buffer[fd] == NULL)
+		buffer[fd] = ft_strnew(BUFF_SIZE + 1);
+	if ((*line = ft_strnew(BUFF_SIZE + 1)) == NULL)
+		return (READ_ERROR);
+	if (ft_isempty(buffer[fd]))
 	{
-		buf[buffout] = '\0';
-		temp = ft_strjoin(keep[fd], buf);
-		free(keep[fd]);
-		keep[fd] = ft_strdup(temp);
-		free(temp);
-		if (ft_contain_char(keep[fd], '\n'))
-			break ;
+		if ((read_ret = read(fd, buffer[fd], BUFF_SIZE)) <= 0)
+			return (read_ret);
+		buffer[fd][read_ret] = '\0';
 	}
-	if (*keep[fd] == 0 && buffout == 0)
+	read_ret = gnl(fd, line, &buffer[fd]);
+	if (read_ret < 0)
+		return (READ_ERROR);
+	if (ft_isempty(*line) && read_ret == 0)
+	{
+		free(buffer[fd]);
+		buffer[fd] = NULL;
 		return (READ_COMPLETE);
-	*line = ft_strndup(keep[fd], new_line_ind(keep[fd]));
-	keep[fd] = ft_remainder(keep[fd]);
+	}
 	return (READ_SUCCESS);
 }

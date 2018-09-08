@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 13:05:38 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/07 18:03:51 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/08/30 11:39:10 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/09/06 13:04:01 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "push.h"
 
-# define READ_SUCCESS 1
-# define READ_COMPLETE 0
-# define READ_ERROR -1
-# define BUFF_SIZE 1
-# define MIN_INT (-MI - 1)
-# define MI 2147483647
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+/*
+**if (ft_strcmp(av[1],"-v") == 0 || ft_strcmp(av[2], "-v") == 0 ||
+**				ft_strcmp(av[1],"-c") == 0 || ft_strcmp(av[2], "-c") == 0)
+**	{
+**		if (ft_strcmp(av[1],"-v") == 0 || ft_strcmp(av[2], "-v") == 0)
+**			ps->flag.x = 0;
+**		if (ft_strcmp(av[1],"-c") == 0 || ft_strcmp(av[2], "-c") == 0)
+**			ps->flag.y = 0;
+**	}
+*/
