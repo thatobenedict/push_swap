@@ -6,7 +6,7 @@
 #    By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 13:40:11 by tbenedic          #+#    #+#              #
-#    Updated: 2018/09/06 11:04:29 by tbenedic         ###   ########.fr        #
+#    Updated: 2018/09/09 11:31:02 by tbenedic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ PUSH_SRC = $(addsuffix .c, $(PUSH_FUNC))
 CHECK_FUNC = main_checker stack_basics display admin operations1 operations2 \
 		operations3 operations_inline get_next_line/get_next_line
 PUSH_FUNC = main_push stack_basics display admin operations1 operations2 \
-		operations3 operations_inline get_next_line/get_next_line algo algo2 \
-	   	do_ps1 do_ps2 do_ps3
+		operations3 operations_inline get_next_line/get_next_line \
+	   	algo algo2 algo3 do_ps1 do_ps2 do_ps3
 LIBFT = get_next_line/libft/libft.a
 HEAD  = push.h
 

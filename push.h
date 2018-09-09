@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/08 18:34:35 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/09 11:55:12 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct	s_ps
 	t_stack		*b;
 	int			trig;
 	t_gnl		gnl;
-	t_score		*tscore;
+	t_score		score;
 	int			hard_trig;
 	int			ac;
 	char		**av;
@@ -131,7 +131,15 @@ void			hard_sort4_5(t_ps *ps);
 /*
 ** ======================================================== algo3.c
 */
-
+void			hard_sort2_b(t_ps *ps);
+int             ab_score(int i, t_stack *stack);
+int             rot_score(t_stack *stack);
+int             real_rot(int a, int b);
+int             is_between(int a, int b, int c);
+int             is_valid(int i, int j, t_ps *ps);
+void			store_top(int a, int b, t_ps *ps);
+void			b_max_to_top(t_ps *ps);
+void			sort_engine(t_ps *ps);
 /*
 ** ======================================================== do_ps1.c
 */

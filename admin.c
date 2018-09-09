@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/08 16:31:40 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/09 11:29:57 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_initial(t_ps *ps)
 {
 	ps->trig = 0;
 	ps->gnl.line = NULL;
-	ps->top.dir_a = 0;
-	ps->top.dir_b = 0;
-	ps->top.dir = 0;
+//	ps->top.dir_a = 0;
+//	ps->top.dir_b = 0;
+//	ps->top.dir = 0;
 }
 
 void	ft_duplicates(t_ps *ps, char **numbers, int count)

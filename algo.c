@@ -6,13 +6,13 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 13:22:25 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/06 12:30:27 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/09 11:30:14 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int		ft_abs(int a, int b)
+int		ft_absdiff(int a, int b)
 {
 	if (a > b)
 		return (a - b);
