@@ -22,25 +22,25 @@ void	dynamic_sort(t_ps *ps)
 	while (ps->a->top >= 0)
 	{
 		sort_engine(ps);
-		ft_putstr("ps->score.top\n");
+		ft_putstr("ps->score.top   :");
 		ft_putnbr(ps->score.top);
 		ft_putchar('\n');
-		ft_putstr("ps->score.mag_a\n");
+		ft_putstr("ps->score.mag_a :");
 		ft_putnbr(ps->score.mag_a);
 		ft_putchar('\n');
-		ft_putstr("ps->score.mag_b\n");
+		ft_putstr("ps->score.mag_b :");
 		ft_putnbr(ps->score.mag_b);
 		ft_putchar('\n');
-		ft_putstr("ps->score.dir_a\n");
+		ft_putstr("ps->score.dir_a :");
 		ft_putnbr(ps->score.dir_a);
 		ft_putchar('\n');
-		ft_putstr("ps->score.dir_b\n");
+		ft_putstr("ps->score.dir_b :");
 		ft_putnbr(ps->score.dir_b);
 		ft_putchar('\n');
-		ft_putstr("ps->score.mag\n");
+		ft_putstr("ps->score.mag   :");
 		ft_putnbr(ps->score.mag);
 		ft_putchar('\n');
-		ft_putstr("ps->score.dir\n");
+		ft_putstr("ps->score.dir   :");
 		ft_putnbr(ps->score.dir);
 		ft_putchar('\n');
 

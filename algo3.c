@@ -73,7 +73,7 @@ int		is_valid(int i, int j, t_ps *ps)
 	if (i == ps->b->top && who_max(ps->b) == ps->b->array[i])
 	{
 		if (ps->b->array[i] > ps->a->array[j] ||
-			ps->b->array[i] < ps->a->array[j])
+			ps->b->array[0] < ps->a->array[j])
 			return (0);
 	}
 	else if (i == ps->b->top)
@@ -158,32 +158,31 @@ void	sort_engine(t_ps *ps)
 	i = ps->b->top + 1;
 	while (--i >= 0)
 	{
-	//	ft_putstr("HERE WE ARE 1\n");
 		j = ps->a->top + 1;
 		while (--j >= 0)
 		{
-	//		ft_putstr("HERE WE ARE 2\n");
 			if (is_valid(i, j, ps) == 0)
 			{
-	//			ft_putstr("HERE WE ARE 3\n");
 				score = real_rot(ab_score(j, ps->a), ab_score(i, ps->b));
-				ft_putstr("VAR A ");
+				ft_putstr("==========================\n");
+				ft_putstr("VAR A    :");
 				ft_putnbr(ps->a->array[j]);
 				ft_putchar('\n');
-				ft_putstr("SCORE A\n");
+				ft_putstr("SCORE A  :");
 				ft_putnbr(ab_score(j, ps->a));
 				ft_putchar('\n');
-				ft_putstr("VAR B ");
+				ft_putstr("VAR B    :");
 				ft_putnbr(ps->b->array[i]);
 				ft_putchar('\n');
-				ft_putstr("SCORE B\n");
+				ft_putstr("SCORE B  :");
 				ft_putnbr(ab_score(i, ps->b));
 				ft_putchar('\n');
+				ft_putstr("==========================\n");
 				if (score < ps->score.top)
 				{
 					store_top(ab_score(j, ps->a), ab_score(i, ps->b), ps);
 					ps->score.top = score;
-					ft_putstr("$$$$$$$$$$$$$$$$$$$$$$$TOP SCORE\n");
+					ft_putstr("$$$$$$$$$$$$$$$$$$$$$$$TOP SCORE:  ");
 					ft_putnbr(ps->score.top);
 					ft_putchar('\n');
 					display_stack(ps->a, ps->b);
