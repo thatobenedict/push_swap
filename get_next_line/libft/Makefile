@@ -6,7 +6,7 @@
 #    By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 13:11:27 by tbenedic          #+#    #+#              #
-#    Updated: 2018/09/08 10:48:26 by tbenedic         ###   ########.fr        #
+#    Updated: 2018/09/11 16:19:58 by tbenedic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ ft_memdel ft_memalloc ft_strlcat ft_whitespace ft_strnew \
 ft_strdel ft_putchar_fd ft_putendl ft_putstr_fd ft_putendl_fd ft_striter ft_striteri ft_putnbr ft_putnbr_fd \
 ft_strclr ft_strmap ft_strmapi ft_strequ ft_strnequ ft_strsub ft_strjoin ft_strtrim ft_strsplit ft_strsplit_word ft_itoa \
 ft_strrev ft_ismin ft_ismax ft_white_word_count ft_strnjoin ft_strndup ft_contain_char ft_strstr_io ft_puttab \
-ft_contain_char_col ft_puttab_fd ft_isnumber ft_atol ft_swap ft_abs ft_absdiff\
+ft_contain_char_col ft_puttab_fd ft_isnumber ft_atol ft_swap ft_abs ft_absdiff \
+ft_is_between
 
 SRCC = $(addsuffix .c, $(FUNCS))
 SRCO = $(addsuffix .o, $(FUNCS)) 

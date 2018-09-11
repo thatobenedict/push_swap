@@ -6,43 +6,40 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/11 15:47:42 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/11 18:20:02 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
+
+void	dynamic_sort_helper(t_ps *ps)
+{
+	while (ps->score.mag_a > 0)
+	{
+		if (ps->score.dir_a == 0)
+			do_ra(ps);
+		else
+			do_rra(ps);
+		ps->score.mag_a--;
+	}
+	while (ps->score.mag_b > 0)
+	{
+		if (ps->score.dir_b == 0)
+			do_rb(ps);
+		else
+			do_rrb(ps);
+		ps->score.mag_b--;
+	}
+}
 
 void	dynamic_sort(t_ps *ps)
 {
 	do_pb(ps);
 	do_pb(ps);
 	hard_sort2_b(ps);
-	display_stack(ps->a, ps->b);   // delete me
 	while (ps->a->top >= 0)
 	{
 		sort_engine(ps);
-/*		ft_putstr("ps->score.top   :");
-		ft_putnbr(ps->score.top);
-		ft_putchar('\n');
-		ft_putstr("ps->score.mag_a :");
-		ft_putnbr(ps->score.mag_a);
-		ft_putchar('\n');
-		ft_putstr("ps->score.mag_b :");
-		ft_putnbr(ps->score.mag_b);
-		ft_putchar('\n');
-		ft_putstr("ps->score.dir_a :");
-		ft_putnbr(ps->score.dir_a);
-		ft_putchar('\n');
-		ft_putstr("ps->score.dir_b :");
-		ft_putnbr(ps->score.dir_b);
-		ft_putchar('\n');
-		ft_putstr("ps->score.mag   :");
-		ft_putnbr(ps->score.mag);
-		ft_putchar('\n');
-		ft_putstr("ps->score.dir   :");
-		ft_putnbr(ps->score.dir);
-		ft_putchar('\n');
-*/
 		while (ps->score.mag > 0)
 		{
 			if (ps->score.dir == 0)
@@ -50,41 +47,13 @@ void	dynamic_sort(t_ps *ps)
 			else
 				do_rrr(ps);
 			ps->score.mag--;
-			display_stack(ps->a, ps->b);   // delete me
 		}
-		while (ps->score.mag_a > 0)
-		{
-			if (ps->score.dir_a == 0)
-				do_ra(ps);
-			else
-				do_rra(ps);
-			ps->score.mag_a--;
-			display_stack(ps->a, ps->b);   // delete me
-		}
-		while (ps->score.mag_b > 0)
-		{
-			if (ps->score.dir_b == 0)
-				do_rb(ps);
-			else
-				do_rrb(ps);
-			ps->score.mag_b--;
-			display_stack(ps->a, ps->b);   // delete me
-		}
-		do_pb(ps);
-		display_stack(ps->a, ps->b);   // delete me
-		ps->score.top = 1000;
-		ps->score.mag_a = 0;
-		ps->score.mag_b = 0;
-		ps->score.dir_a = 0;
-		ps->score.dir_b = 0;
-		ps->score.mag = 0;
-		ps->score.dir = 0;
+		dynamic_sort_helper(ps);
+		push_b_reset_score(ps);
 	}
 	b_max_to_top(ps);
-	display_stack(ps->a, ps->b);   // delete me
 	while (ps->b->top >= 0)
 		do_pa(ps);
-	display_stack(ps->a, ps->b);   // delete me
 }
 
 void	push_create(t_ps *ps)

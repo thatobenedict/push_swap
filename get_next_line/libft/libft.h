@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 10:48:04 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/08 10:47:56 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/11 16:19:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,5 @@ long				ft_atol(char *str);
 void				ft_swap(int *a, int *b);
 int					ft_abs(int a);
 int					ft_absdiff(int a, int b);
+int					ft_is_between(int a, int z, int x);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/10 18:50:23 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/11 18:42:34 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define MIN_INT (-MAX_INT - 1)
 # define MAX_INT 2147483647
 # include "get_next_line/get_next_line.h"
-# include <stdlib.h>
 
 typedef struct	s_cord
 {
@@ -113,33 +112,34 @@ void			check_sort(t_ps *stack);
 int				check_sort_int(t_ps *ps);
 int				check_sort_stack(t_stack *stack);
 /*
-** ======================================================== algo.c
+** ======================================================== algo_helpers.c
 */
-int				between(int a, int z, int x);
-void			score_gen(int i_a, int i_b, t_ps *ps);
 int				who_min(t_stack *array);
 int				who_max(t_stack *array);
-int				check_cycle(t_stack *stack);
-void			valid_rot(t_ps *ps);
+void			hard_sort2_b(t_ps *ps);
+void			b_max_to_top(t_ps *ps);
+void			push_b_reset_score(t_ps *ps);
 /*
-** ======================================================== algo2.c
+** ======================================================== algo_2to5.c
 */
 void			rotates(t_ps *ps);
 void			hard_sort2(t_ps *pa);
 void			hard_sort3(t_ps *ps);
 void			hard_sort4_5(t_ps *ps);
 /*
-** ======================================================== algo3.c
+** ======================================================== algo_6plus.c
 */
-void			hard_sort2_b(t_ps *ps);
-int             ab_score(int i, t_stack *stack);
-int             rot_score(t_stack *stack);
-int             real_rot(int a, int b);
-int             is_between(int a, int b, int c);
-int             is_valid(int i, int j, t_ps *ps);
+int				ab_score(int i, t_stack *stack);
+int				real_rot(int a, int b);
+int				is_valid(int i, int j, t_ps *ps);
 void			store_top(int a, int b, t_ps *ps);
-void			b_max_to_top(t_ps *ps);
 void			sort_engine(t_ps *ps);
+/*
+** ======================================================== algo_6plus_helper.c
+*/
+void			if_rrr_store_top(int a, int b, t_ps *ps);
+void			if_rr_store_top(int a, int b, t_ps *ps);
+void			if_2directions_store_top(int a, int b, t_ps *ps);
 /*
 ** ======================================================== do_ps1.c
 */

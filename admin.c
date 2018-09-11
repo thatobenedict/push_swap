@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/09 11:29:57 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/11 18:49:48 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ void	ft_initial(t_ps *ps)
 {
 	ps->trig = 0;
 	ps->gnl.line = NULL;
-//	ps->top.dir_a = 0;
-//	ps->top.dir_b = 0;
-//	ps->top.dir = 0;
 }
 
 void	ft_duplicates(t_ps *ps, char **numbers, int count)
@@ -98,7 +95,6 @@ void	err_admin(int ac, char **av, t_ps *ps)
 	if ((ps->trig == 2 && ac == 0) || (ps->trig == 1 && ac == 1))
 	{
 		message(-2);
-		ft_putstr_fd("No Numeric Parameters Inputed\n", 2);
 		exit(-1);
 	}
 	ft_duplicates(ps, av, ac);
