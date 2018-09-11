@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:58:36 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/30 16:53:52 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/11 15:31:56 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,31 @@ void	display_stack(t_stack *a, t_stack *b)
 {
 	int i;
 	int j;
+	int fd;
 
 	i = a->top;
 	j = b->top;
+	fd = 2;
 	while (i >= 0 || j >= 0)
 	{
 		if (i >= 0)
 		{
-			ft_putnbr_fd(a->array[i], 2);
-			ft_putchar_fd('\t', 2);
+			ft_putnbr_fd(a->array[i], fd);
+			ft_putchar_fd('\t', fd);
 		}
 		else
-			ft_putstr_fd("--\t", 2);
+			ft_putstr_fd("--\t", fd);
 		if (j >= 0)
 		{
-			ft_putnbr_fd(b->array[j], 2);
-			ft_putchar_fd('\n', 2);
+			ft_putnbr_fd(b->array[j], fd);
+			ft_putchar_fd('\n', fd);
 		}
 		else
-			ft_putstr_fd("--\n", 2);
+			ft_putstr_fd("--\n", fd);
 		i--;
 		j--;
 	}
-	ft_putstr_fd("--\t--\nA\tB\n", 2);
+	ft_putstr_fd("--\t--\nA\tB\n", fd);
 }
 
 void	message(int signal)
