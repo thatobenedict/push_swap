@@ -44,7 +44,7 @@ void	dynamic_sort(t_ps *ps)
 		ft_putnbr(ps->score.dir);
 		ft_putchar('\n');
 
-		while (ps->score.mag > 0)
+/*		while (ps->score.mag > 0)
 		{
 			if (ps->score.dir == 0)
 				do_rr(ps);
@@ -52,7 +52,7 @@ void	dynamic_sort(t_ps *ps)
 				do_rrr(ps);
 			ps->score.mag--;
 			display_stack(ps->a, ps->b);   // delete me
-		}
+		}*/
 		while (ps->score.mag_a > 0)
 		{
 			if (ps->score.dir_a == 0)
@@ -74,7 +74,7 @@ void	dynamic_sort(t_ps *ps)
 		do_pb(ps);
 		display_stack(ps->a, ps->b);   // delete me
 	
-		ps->score.top = 10000;
+		ps->score.top = 1000;
 	ps->score.mag_a = 0;
 	ps->score.mag_b = 0;
 	ps->score.dir_a = 0;
@@ -82,7 +82,7 @@ void	dynamic_sort(t_ps *ps)
 	ps->score.mag = 0;
 	ps->score.dir = 0;
 	}
-	b_max_to_top(ps); //								 $$$ WORKING LIKE A GEM
+	b_max_to_top(ps); //		$$$ WORKING LIKE A GEM
 	display_stack(ps->a, ps->b);   // go together
 	while (ps->b->top >= 0)
 		do_pa(ps);
