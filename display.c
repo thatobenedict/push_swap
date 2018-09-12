@@ -18,10 +18,10 @@ void	display_stack(t_stack *a, t_stack *b)
 	int j;
 	int fd;
 
-	i = a->top + 1;
-	j = b->top + 1;
+	i = a->top;
+	j = b->top;
 	fd = 2;
-	while (--i >= 0 || --j >= 0)
+	while (i >= 0 || j >= 0)
 	{
 		if (i >= 0)
 		{
@@ -37,6 +37,8 @@ void	display_stack(t_stack *a, t_stack *b)
 		}
 		else
 			ft_putstr_fd("--\n", fd);
+i--;
+j--;
 	}
 	ft_putstr_fd("--\t--\nA\tB\n", fd);
 }
