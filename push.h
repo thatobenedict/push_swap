@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 14:40:13 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/11 18:42:34 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:41:50 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int				ret_index(int value, t_stack *array);
 */
 void			display_stack(t_stack *a, t_stack *b);
 void			message(int signal);
+int				relieve_yourself(t_ps *ps);
 /*
 ** ======================================================== operations1.c
 */

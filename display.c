@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:58:36 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/11 18:48:02 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:59:24 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,31 @@ void	message(int signal)
 		ft_putstr_fd(SORTED, 2);
 		exit(-1);
 	}
+}
+
+int		relieve_yourself(t_ps *ps)
+{
+	int i;
+
+	if (ps->a != NULL)
+	{
+		if (ps->a->array != NULL)
+			free(ps->a->array);
+		ft_memdel((void **)&ps->a);
+	}
+	if (ps->b != NULL)
+	{
+		if (ps->b->array != NULL)
+			free(ps->b->array);
+		ft_memdel((void**)&ps->b);
+	}
+	if (ps->av != NULL)
+	{
+		i = -1;
+		while (ps->av[++i] != 0)
+			free(ps->av[i]);
+		free(ps->av);
+	}
+	ft_memdel((void **)&ps);
+	return (0);
 }

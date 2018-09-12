@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 11:06:59 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/07 14:49:37 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:05:16 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ static char		*ft_remainder(char *line)
 	return (new);
 }
 
+void    swapnfree(char **var, char *new_val)
+{
+	char    *tmp;
+
+	free(*var);
+	tmp = new_val;
+	*var = tmp;
+}
+
 int				get_next_line(const int fd, char **line)
 {
 	char		buf[BUFF_SIZE + 1];
@@ -57,8 +66,12 @@ int				get_next_line(const int fd, char **line)
 			break ;
 	}
 	if (*keep[fd] == 0 && buffout == 0)
+	{
+		free(keep[fd]);
+		keep[fd] = NULL;
 		return (READ_COMPLETE);
+	}
 	*line = ft_strndup(keep[fd], new_line_ind(keep[fd]));
-	keep[fd] = ft_remainder(keep[fd]);
+	swapnfree(&keep[fd], ft_remainder(keep[fd]));
 	return (READ_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 11:58:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/07 16:58:23 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:02:47 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	apply(t_ps *ps)
 			break ;
 		else
 			apply_ext(ps);
+		free(ps->gnl.line);
 	}
 }
 
@@ -51,6 +52,7 @@ void	apply_ext(t_ps *ps)
 		display_stack(ps->a, ps->b);
 	else
 		message(-2);
+	//relieve_yourself(ps);i
 }
 
 void	check_sort(t_ps *ps)
@@ -67,14 +69,14 @@ void	check_sort(t_ps *ps)
 			else
 			{
 				ft_putstr_fd(UNSORTED, 2);
-				exit(-1);
+				exit(relieve_yourself(ps));
 			}
 		}
 		ft_putstr_fd(SORTED, 2);
-		exit(0);
+		exit(relieve_yourself(ps));
 	}
 	ft_putstr_fd(UNSORTED, 2);
-	exit(-1);
+	exit(relieve_yourself(ps));
 }
 
 int		check_sort_int(t_ps *ps)

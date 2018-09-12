@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/11 18:20:02 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:43:23 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		main(int ac, char **av)
 	while (--i >= 0)
 		push(ps->a, ft_atoi(av[i]));
 	if (check_sort_int(ps) == 0)
-		return (0);
+		return (relieve_yourself(ps));
 	else if (ps->ac == 3)
 		hard_sort2(ps);
 	else if (ps->ac == 4)
@@ -97,5 +97,5 @@ int		main(int ac, char **av)
 		hard_sort4_5(ps);
 	else
 		dynamic_sort(ps);
-	return (0);
+	return (relieve_yourself(ps));
 }

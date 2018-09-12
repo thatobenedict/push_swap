@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:31:25 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/07 14:38:48 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:39:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ int		main(int ac, char **av)
 	ps->a = new_stack(ac - 1);
 	ps->b = new_stack(ac - 1);
 	check_creator(ps, ac, av);
-	return (0);
+	return (relieve_yourself(ps));
 }

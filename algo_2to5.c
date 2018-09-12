@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 17:21:04 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/11 17:21:07 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:43:25 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	rotates(t_ps *ps)
 void	hard_sort2(t_ps *ps)
 {
 	if (check_sort_int(ps) == 0)
-		exit(1);
+		exit(relieve_yourself(ps));
 	do_sa(ps);
 }
 
@@ -57,7 +57,7 @@ void	hard_sort3(t_ps *ps)
 		do_ra(ps);
 	}
 	if (ps->hard_trig == 0)
-		exit(1);
+		exit(relieve_yourself(ps));
 	ps->hard_trig = 0;
 }
 
@@ -78,6 +78,6 @@ void	hard_sort4_5(t_ps *ps)
 	while (++i < ((ps->ac - 1) % 2) + 1)
 		do_pa(ps);
 	if (ps->hard_trig == 0)
-		exit(1);
+		exit(relieve_yourself(ps));
 	ps->hard_trig = 0;
 }

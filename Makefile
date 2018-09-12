@@ -6,7 +6,7 @@
 #    By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 13:40:11 by tbenedic          #+#    #+#              #
-#    Updated: 2018/09/11 18:40:32 by tbenedic         ###   ########.fr        #
+#    Updated: 2018/09/12 09:35:14 by tbenedic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,8 @@ $(NAME2):
 	gcc -Wall -Werror -Wextra $(PUSH_SRC) $(LIBFT) -o $(NAME2)
 
 local:
-	gcc -Wall -Werror -Wextra $(CHECK_SRC) $(LIBFT) -o $(NAME)
-	gcc -Wall -Werror -Wextra $(PUSH_SRC) $(LIBFT) -o $(NAME2)
+	gcc -g -Wall -Werror -Wextra $(CHECK_SRC) $(LIBFT) -o $(NAME)
+	gcc -g -Wall -Werror -Wextra $(PUSH_SRC) $(LIBFT) -o $(NAME2)
 
 check:
 	gcc -Wall -Werror -Wextra $(CHECK_SRC) $(LIBFT) -o $(NAME)
