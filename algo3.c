@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 10:43:47 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/13 17:47:57 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/13 18:42:26 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ int		ab_score(int i, t_stack *stack)
 	if (i >= stack->top / 2)
 		diff = stack->top - i;
 	else
-		diff = (-1)*(i + 1);
-	return (diff);	
+		diff = (-1) * (i + 1);
+	return (diff);
 }
 
 /*
- ** =This function seeks to find out the true number of rotations required to achieve the correct pb
- */
+** This function seeks to find out the true
+** number of rotations required to achieve the correct pb
+*/
+
 int		real_rot(int a, int b)
 {
-		if (a < 0 && b < 0)
+	if (a < 0 && b < 0)
 		return (ft_absdiff(ft_abs(a), ft_abs(b)) +
 				ft_ismin(ft_abs(a), ft_abs(b)));
 	else if (a >= 0 && b >= 0)
@@ -114,7 +116,7 @@ void	store_top(int a, int b, t_ps *ps)
 }
 
 void	b_max_to_top(t_ps *ps)
-{	
+{
 	int diff;
 
 	if (ret_index(who_max(ps->b), ps->b) >= ps->b->top / 2)
@@ -135,7 +137,8 @@ void	sort_engine(t_ps *ps)
 	int i;
 	int j;
 	int score;
- 	i = ps->b->top + 1;
+
+	i = ps->b->top + 1;
 	while (--i >= 0)
 	{
 		j = ps->a->top + 1;
