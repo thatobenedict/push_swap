@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/09 11:29:57 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/13 17:56:04 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ void	err_admin(int ac, char **av, t_ps *ps)
 {
 	if ((ps->trig == 2 && ac == 0) || (ps->trig == 1 && ac == 1))
 	{
-		message(-2);
-		ft_putstr_fd("No Numeric Parameters Inputed\n", 2);
+		//message(-2);
 		exit(-1);
 	}
 	ft_duplicates(ps, av, ac);

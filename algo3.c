@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 10:43:47 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/13 13:17:56 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/13 17:47:57 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,48 +155,3 @@ void	sort_engine(t_ps *ps)
 		}
 	}
 }
-
-//remember to send the first two then sort them biggest to smallest
-/*void	sort_engine(t_ps *ps)
-{
-	int i;
-	int j;
-	int score;
-
-	i = ps->b->top + 1;
-	while (--i >= 0)
-	{
-		j = ps->a->top + 1;
-		while (--j >= 0)
-		{
-			if (is_valid(i, j, ps) == 0)
-			{
-				score = real_rot(ab_score(j, ps->a), ab_score(i, ps->b));
-				//	ft_putstr("==========================\n");
-				//	ft_putstr("VAR A    :");
-				//	ft_putnbr(ps->a->array[j]);
-				//	ft_putchar('\n');
-				//	ft_putstr("SCORE A  :");
-				//	ft_putnbr(ab_score(j, ps->a));
-				//	ft_putchar('\n');
-				//	ft_putstr("VAR B    :");
-				//	ft_putnbr(ps->b->array[i]);
-				//	ft_putchar('\n');
-				//	ft_putstr("SCORE B  :");
-				//	ft_putnbr(ab_score(i, ps->b));
-				//	ft_putchar('\n');
-				//	ft_putstr("==========================\n");
-				if (score < ps->score.top)
-				{
-					store_top(ab_score(j, ps->a), ab_score(i, ps->b), ps);
-					ps->score.top = score;
-					//		ft_putstr("$$$$$$$$$$$$$$$$$$$$$$$TOP SCORE:  ");
-					//		ft_putnbr(ps->score.top);
-					//		ft_putchar('\n');
-					display_stack(ps->a, ps->b);
-
-				}
-			}			
-		}
-	}
-}*/

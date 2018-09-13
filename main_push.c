@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/13 13:17:58 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/13 17:58:05 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	dynamic_sort(t_ps *ps)
 	do_pb(ps);
 
 	hard_sort2_b(ps);
-	display_stack(ps->a, ps->b);   // delete me
+	//display_stack(ps->a, ps->b);   // delete me
 	while (ps->a->top >= 0)
 	{
 		sort_engine(ps);
@@ -78,7 +78,7 @@ void	dynamic_sort(t_ps *ps)
 			else
 				do_rrr(ps);
 			ps->score.mag--;
-			display_stack(ps->a, ps->b);   // delete me
+	//		display_stack(ps->a, ps->b);   // delete me
 		}
 
 		while (ps->score.mag_a > 0)
@@ -98,7 +98,7 @@ void	dynamic_sort(t_ps *ps)
 			ps->score.mag_b--;
 		}
 		do_pb(ps);
-		display_stack(ps->a, ps->b);   // delete me
+	//	display_stack(ps->a, ps->b);   // delete me
 
 		ps->score.top = 1000;
 		ps->score.mag_a = 0;
@@ -109,20 +109,26 @@ void	dynamic_sort(t_ps *ps)
 		ps->score.dir = 0;
 	}
 	b_max_to_top(ps); //		$$$ WORKING LIKE A GEM
-	display_stack(ps->a, ps->b);   // go together
+//	display_stack(ps->a, ps->b);   // go together
 	while (ps->b->top >= 0)
 		do_pa(ps);
-	display_stack(ps->a, ps->b);   // go together
+//	display_stack(ps->a, ps->b);   // go together
 }
 
 void	push_create(t_ps *ps)
 {
+//	ft_putnbr_fd( ps->ac ,2);
+//	ft_putstr_fd("\n",2);
 	if (ps->ac == 2)
 	{
 		ps->trig = 2;
 		ps->ac = ft_white_word_count(ps->av[1]) + 1;
+//		ft_putnbr_fd( ps->ac ,2);
+//		ft_putstr_fd("\n",2);
+
 		ps->av = ft_strsplit(ps->av[1], ' ');
 		err_admin(ps->ac - 1, ps->av, ps);
+//		ft_putstr_fd("HERE1\n",2);
 	}
 	else
 	{
@@ -140,12 +146,13 @@ int		main(int ac, char **av)
 	ft_initial(ps);
 	ps->ac = ac;
 	ps->av = av;
+
 	push_create(ps);
-	ps->a = new_stack(ac - 1);
-	ps->b = new_stack(ac - 1);
-	i = ac - ps->trig + 1;
+	ps->a = new_stack(ps->ac - 1);
+	ps->b = new_stack(ps->ac - 1);
+	i = ps->ac - ps->trig + 1;
 	while (--i >= 0)
-		push(ps->a, ft_atoi(av[i]));
+		push(ps->a, ft_atoi(ps->av[i]));
 	if (check_sort_int(ps) == 0)
 		return (0);
 	else if (ps->ac == 3)
