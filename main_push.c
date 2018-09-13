@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:44:05 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/11 18:20:02 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/13 08:27:45 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	dynamic_sort_helper(t_ps *ps)
 			do_rrb(ps);
 		ps->score.mag_b--;
 	}
-	do_pb(ps); // based on git changes 
+	//	do_pb(ps); // based on git changes 
 }
 
 void	dynamic_sort(t_ps *ps)
@@ -49,7 +49,7 @@ void	dynamic_sort(t_ps *ps)
 				do_rrr(ps);
 			ps->score.mag--;
 		}
-		//here1
+		//  here1
 		while (ps->score.mag_a > 0)
 		{
 			if (ps->score.dir_a == 0)
@@ -57,7 +57,7 @@ void	dynamic_sort(t_ps *ps)
 			else
 				do_rra(ps);
 			ps->score.mag_a--;
-			display_stack(ps->a, ps->b);   // delete me
+			//	display_stack(ps->a, ps->b);   // delete me
 		}
 		while (ps->score.mag_b > 0)
 		{
@@ -66,10 +66,10 @@ void	dynamic_sort(t_ps *ps)
 			else
 				do_rrb(ps);
 			ps->score.mag_b--;
-			display_stack(ps->a, ps->b);   // delete me
+			//	display_stack(ps->a, ps->b);   // delete me
 		}
 		do_pb(ps);
-		display_stack(ps->a, ps->b);   // delete me
+		// 	display_stack(ps->a, ps->b);   // delete me
 		ps->score.top = 1000;
 		ps->score.mag_a = 0;
 		ps->score.mag_b = 0;
@@ -77,7 +77,7 @@ void	dynamic_sort(t_ps *ps)
 		ps->score.dir_b = 0;
 		ps->score.mag = 0;
 		ps->score.dir = 0;
-		//here2
+		// here2
 		//	dynamic_sort_helper(ps);
 		//	push_b_reset_score(ps);
 	}
@@ -87,9 +87,7 @@ void	dynamic_sort(t_ps *ps)
 }
 
 void	push_create(t_ps *ps)
-{	ft_putnbr(ps->ac);
-ft_putchar('\n');
-
+{	
 	if (ps->ac == 2)
 	{
 		ps->trig = 2;
@@ -113,8 +111,6 @@ int		main(int ac, char **av)
 	ft_initial(ps);
 	ps->ac = ac;
 	ps->av = av;
-	ft_putnbr(ps->ac);
-ft_putchar('\n');
 	push_create(ps);
 	ps->a = new_stack(ac - 1);
 	ps->b = new_stack(ac - 1);

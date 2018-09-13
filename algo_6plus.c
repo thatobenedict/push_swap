@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 17:23:47 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/11 18:42:31 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/13 08:34:18 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int		ab_score(int i, t_stack *stack)
 }
 
 /*
-** This function seeks to find out the true number of rotations required
-** to achieve the correct pb
-*/
+ ** This function seeks to find out the true number of rotations required
+ ** to achieve the correct pb
+ */
 
 int		real_rot(int a, int b)
 {
@@ -65,11 +65,35 @@ int		is_valid(int i, int j, t_ps *ps)
 void	store_top(int a, int b, t_ps *ps)
 {
 	if (a < 0 && b < 0)
-		if_rrr_store_top(a, b, ps);
+	{
+		ps->score.mag = ft_ismin(ft_abs(a), ft_abs(b));
+	ps->score.mag_a = (ft_abs(a) > ft_abs(b)) ? ft_abs(a) - ft_abs(b) : 0;
+	ps->score.mag_b = (ft_abs(b) > ft_abs(a)) ? ft_abs(b) - ft_abs(a) : 0;
+	ps->score.dir = -1;
+	ps->score.dir_a = -1;
+	ps->score.dir_b = -1;
+	}
+	//	if_rrr_store_top(a, b, ps);
 	else if (a >= 0 && b >= 0)
-		if_rr_store_top(a, b, ps);
+	{
+		ps->score.mag = ft_ismin(ft_abs(a), ft_abs(b));
+	ps->score.mag_a = (a > b) ? a - b : 0;
+	ps->score.mag_b = (b > a) ? b - a : 0;
+	ps->score.dir = 0;
+	ps->score.dir_a = 0;
+	ps->score.dir_b = 0;
+	}
+	//	if_rr_store_top(a, b, ps);
 	else
-		if_2directions_store_top(a, b, ps);
+	{
+		ps->score.dir = 0;
+	ps->score.dir_a = (a < 0) ? -1 : 0;
+	ps->score.dir_b = (b < 0) ? -1 : 0;
+	ps->score.mag = 0;
+	ps->score.mag_a = ft_abs(a);
+	ps->score.mag_b = ft_abs(b);
+	}
+	//	if_2directions_store_top(a, b, ps);
 }
 
 void	sort_engine(t_ps *ps)
@@ -91,8 +115,8 @@ void	sort_engine(t_ps *ps)
 				{
 					store_top(ab_score(j, ps->a), ab_score(i, ps->b), ps);
 					ps->score.top = score;
-					if (ps->score.top <= 1)
-						return ;
+			//		if (ps->score.top <= 1)
+			//			return ;
 				}
 			}
 		}
