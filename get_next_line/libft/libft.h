@@ -6,13 +6,14 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 10:48:04 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/24 11:42:37 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/14 14:02:13 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include <stdlib.h>
 
 /*
  ** PART I
@@ -91,4 +92,9 @@ int					ft_contain_char_col(char **s1, int col, int height, int c);
 void				ft_puttab_fd(char **s, int fd);
 int					ft_isnumber(void *c);
 long				ft_atol(char *str);
+void				ft_swap(int *a, int *b);
+int					ft_abs(int a);
+int					ft_absdiff(int a, int b);
+int					is_between(int a, int b, int c);
+int					ft_isempty(char *s);
 #endif

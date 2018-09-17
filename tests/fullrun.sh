@@ -1,0 +1,11 @@
+rm out
+rm out100
+rm out12
+rm out500
+rm outmoves
+rm result100.log
+rm result500.log
+sh run_3_piece.sh
+sh run_5_piece.sh
+sh run_error_tests.sh
+sh run_push_swap_tests.sh

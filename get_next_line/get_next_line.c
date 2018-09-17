@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 11:06:59 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/13 11:08:02 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/09/14 13:52:10 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/09/16 11:10:08 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
+#include "./libft/libft.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 static int		new_line_ind(char *buf)
 {
@@ -36,12 +38,20 @@ static char		*ft_remainder(char *line)
 	return (new);
 }
 
+void			swapnfree(char **var, char *new_val)
+{
+	char	*tmp;
+
+	free(*var);
+	tmp = new_val;
+	*var = tmp;
+}
+
 int				get_next_line(const int fd, char **line)
 {
 	char		buf[BUFF_SIZE + 1];
 	static char	*keep[9999];
 	int			buffout;
-	char		*temp;
 
 	if (fd < 0 || !line || BUFF_SIZE < 1 || read(fd, 0, 0) < 0)
 		return (READ_ERROR);
@@ -50,16 +60,17 @@ int				get_next_line(const int fd, char **line)
 	while ((buffout = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[buffout] = '\0';
-		temp = ft_strjoin_2(keep[fd], buf);
-		free(keep[fd]);
-		keep[fd] = ft_strdup(temp);
-		free(temp);
+		swapnfree(&keep[fd], ft_strjoin(keep[fd], buf));
 		if (ft_contain_char(keep[fd], '\n'))
 			break ;
 	}
 	if (*keep[fd] == 0 && buffout == 0)
+	{
+		free(keep[fd]);
+		keep[fd] = NULL;
 		return (READ_COMPLETE);
-	*line = ft_strndup(keep[fd], new_line_ind(keep[fd]));
-	keep[fd] = ft_remainder(keep[fd]);
+	}
+	swapnfree(line, ft_strndup(keep[fd], new_line_ind(keep[fd])));
+	swapnfree(&keep[fd], ft_remainder(keep[fd]));
 	return (READ_SUCCESS);
 }

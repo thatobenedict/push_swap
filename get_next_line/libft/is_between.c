@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   is_between.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 13:05:38 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/09/14 13:58:31 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/09/14 12:03:17 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/09/14 12:03:53 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define MIN (-MAX - 1)
-# define MAX 2147483647
-
-# define READ_SUCCESS 1
-# define READ_COMPLETE 0
-# define READ_ERROR -1
-# define BUFF_SIZE 1
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+int		is_between(int a, int b, int c)
+{
+	if (a < b)
+	{
+		if (a < c && b > c)
+			return (0);
+	}
+	else
+	{
+		if (b < c && a > c)
+			return (0);
+	}
+	return (1);
+}

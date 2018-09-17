@@ -6,51 +6,76 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 07:58:36 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/26 17:50:11 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/16 10:40:54 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void	display_stack(t_ps *ps)
+void	display_stack(t_stack *a, t_stack *b)
 {
 	int i;
 	int j;
 
-	i = ps->a.top;
-	j = ps->b.top;
+	i = a->top;
+	j = b->top;
 	while (i >= 0 || j >= 0)
 	{
 		if (i >= 0)
 		{
-			ft_putnbr(ps->a.array[i]);
-			ft_putchar('\t');
+			ft_putnbr_fd(a->array[i], 2);
+			ft_putchar_fd('\t', 2);
 		}
 		else
-		{
-			ft_putstr("--");
-			ft_putchar('\t');
-		}
+			ft_putstr_fd("--\t", 2);
 		if (j >= 0)
 		{
-			ft_putnbr(ps->b.array[j]);
-			ft_putchar('\n');
+			ft_putnbr_fd(b->array[j], 2);
+			ft_putchar_fd('\n', 2);
 		}
 		else
-		{
-			ft_putstr("--");
-			ft_putchar('\n');
-		}
+			ft_putstr_fd("--\n", 2);
 		i--;
 		j--;
 	}
-	ft_putstr("--\t--\nA\tB\n");
+	ft_putstr_fd("--\t--\nA\tB\n", 2);
 }
 
-void	display_top(t_stack *ps)
+void	message(int signal)
 {
-	ft_putnbr(ps->top);
-	ft_putchar('\n');
-	ft_putnbr(ps->array[ps->top]);
-	ft_putchar('\n');
+	if (signal == -1)
+	{
+		ft_putstr_fd(ERROR, 2);
+		exit(-1);
+	}
+	if (signal == -2)
+		ft_putstr_fd(ERROR, 2);
+	else if (signal == 0)
+	{
+		ft_putstr_fd(UNSORTED, 1);
+		exit(-1);
+	}
+	else if (signal == 1)
+	{
+		ft_putstr_fd(SORTED, 1);
+		exit(-1);
+	}
+}
+
+int		relieve_yourself(t_ps *ps)
+{
+	if (ps->a != NULL)
+	{
+		if (ps->a->array != NULL)
+			free(ps->a->array);
+		ft_memdel((void **)&ps->a);
+	}
+	if (ps->b != NULL)
+	{
+		if (ps->b->array != NULL)
+			free(ps->b->array);
+		ft_memdel((void**)&ps->b);
+	}
+	ft_memdel((void **)&ps);
+	return (0);
 }

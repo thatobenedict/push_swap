@@ -6,19 +6,28 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:08:31 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/26 18:18:23 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/09/16 09:19:18 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void	ft_duplicates(char **numbers, int count)
+void	ft_initial(t_ps *ps)
+{
+	ps->trig = 0;
+	ps->gnl.line = NULL;
+}
+
+void	ft_duplicates(t_ps *ps, char **numbers, int count)
 {
 	int i;
 	int j;
 	int end;
 
-	i = 0;
+	if (ps->trig == 1)
+		i = 1;
+	else
+		i = 0;
 	j = 0;
 	end = count;
 	while (i < end)
@@ -27,94 +36,65 @@ void	ft_duplicates(char **numbers, int count)
 		while (j < end)
 		{
 			if (ft_atoi(numbers[i]) == ft_atoi(numbers[j]))
-			{
-				ft_putstr_fd("Error0\n", 2);
-				exit (-1);
-			}
+				message(-1);
 			j++;
 		}
 		i++;
-	}		
+	}
 }
 
 void	is_digits(char **numbers, t_ps *ps)
 {
 	int i;
 	int j;
+	int trig;
 
-	i = 0;
-	j = 0;
-	if (ps->admin.in_type == 2)
-		ps->admin.in_type = 0;
-	while (numbers[i + ps->admin.in_type] != 0)
+	i = -1;
+	trig = ps->trig;
+	if (trig == 2)
+		trig = 0;
+	while (numbers[++i + trig] != 0)
 	{
-		j = 0;
-		while (numbers[i + ps->admin.in_type][j] != '\0')
+		j = -1;
+		while (numbers[i + trig][++j] != '\0')
 		{
-			if ((numbers[i + ps->admin.in_type][j] == '+' ||
-					   	numbers[i + ps->admin.in_type][j] == '-'))
+			if ((numbers[i + trig][j] == '+' || numbers[i + trig][j] == '-'))
 			{
-				j++;
-				if (ft_isdigit(numbers[i + ps->admin.in_type][j]) == 0)
-				{
-					ft_putstr_fd("Error1\n", 2);
-					exit (-1);
-				}
+				if (ft_isdigit(numbers[i + trig][++j]) == 0)
+					message(-1);
 			}
 			else
 			{
-				if (ft_isdigit(numbers[i + ps->admin.in_type][j]) == 0)
-				{
-					ft_putnbr_fd(numbers[i + ps->admin.in_type][j], 2);
-					ft_putchar_fd('\n',2);
-					ft_putstr_fd("Error2\n", 2);
-					exit (-1);
-				}
-				j++;
+				if (ft_isdigit(numbers[i + trig][j]) == 0)
+					message(-1);
 			}
 		}
-		i++;
 	}
 }
 
 void	is_int(char **numbers, t_ps *ps)
 {
 	int i;
+	int trig;
 
 	i = 0;
-	if (ps->admin.in_type == 2)
-		ps->admin.in_type = 0;
-	while (numbers[i + ps->admin.in_type] != 0)
+	trig = ps->trig;
+	if (trig == 2)
+		trig = 0;
+	while (numbers[i + trig] != 0)
 	{
-		if (ft_atol(numbers[i + ps->admin.in_type]) < -2147483648 ||
-				ft_atol(numbers[i + ps->admin.in_type]) > 2147483647)
-		{
-			ft_putstr_fd("Error3\n", 2);
-			exit (-1);
-		}
+		if (ft_atol(numbers[i + trig]) < -2147483648 ||
+				ft_atol(numbers[i + trig]) > 2147483647)
+			message(-1);
 		i++;
 	}
 }
 
-void	error_handle(char **numbers, int count, t_ps *ps)
+void	err_admin(int ac, char **av, t_ps *ps)
 {
-	if (count == 2)
-	{
-		ps->admin.in_type = 2;
-		count = ft_white_word_count(numbers[1]) + 1;
-		numbers = ft_strsplit(numbers[1], ' ');
-	}
-	else
-		ps->admin.in_type = 1;
-	ft_duplicates(numbers, count);
-	is_digits(numbers, ps);
-	is_int(numbers, ps);
+	if ((ps->trig == 2 && ac == 0) || (ps->trig == 1 && ac == 1))
+		exit(-1);
+	ft_duplicates(ps, av, ac);
+	is_digits(av, ps);
+	is_int(av, ps);
 }
-/*
- ** Errors include for example: 			
- ** some arguments are not integers, 				
- ** some arguments are bigger than an integer,		
- ** there are duplicates, 							###DONE
- ** an instruction don’t exist and/or is			
- ** incorrectly formatted.							
- */
